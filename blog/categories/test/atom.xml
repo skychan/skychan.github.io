@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Test | Sky's Octopress Blog]]></title>
   <link href="http://diufanshu.github.io/blog/categories/test/atom.xml" rel="self"/>
   <link href="http://diufanshu.github.io/"/>
-  <updated>2015-01-03T20:55:09+08:00</updated>
+  <updated>2015-01-03T22:33:03+08:00</updated>
   <id>http://diufanshu.github.io/</id>
   <author>
     <name><![CDATA[Sky Chan]]></name>
@@ -18,7 +18,7 @@
     <link href="http://diufanshu.github.io/blog/2014/12/31/happy-new-year/"/>
     <updated>2014-12-31T21:11:13+08:00</updated>
     <id>http://diufanshu.github.io/blog/2014/12/31/happy-new-year</id>
-    <content type="html"><![CDATA[<p>This is sky&rsquo;s first blog with octpress, have fun ^-^</p>
+    <content type="html"><![CDATA[<p>This is sky&rsquo;s first blog with octopress, have fun ^-^</p>
 ]]></content>
   </entry>
   
