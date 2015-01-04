@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | Sky's Octopress Blog]]></title>
   <link href="http://diufanshu.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://diufanshu.github.io/"/>
-  <updated>2015-01-04T22:32:09+08:00</updated>
+  <updated>2015-01-04T22:34:52+08:00</updated>
   <id>http://diufanshu.github.io/</id>
   <author>
     <name><![CDATA[Sky Chan]]></name>
@@ -47,7 +47,7 @@
 
 <h3>2. /source/_include/head.html</h3>
 
-<p>这个配置里面搜索以下，找到&#8217;googleapis&#8217;关键字，然后忍痛把这行脚本注释了。重新preview, 终于是加载快了，但是，总觉得这样不好。</p>
+<p>这个配置里面搜索一下，找到&#8217;googleapis&#8217;关键字，然后忍痛把这行脚本注释了。重新preview, 终于是加载快了，但是，总觉得这样不好。</p>
 
 <h2>我的想法</h2>
 
