@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | Sky's Octopress Blog]]></title>
   <link href="http://diufanshu.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://diufanshu.github.io/"/>
-  <updated>2015-01-04T22:19:44+08:00</updated>
+  <updated>2015-01-04T22:32:09+08:00</updated>
   <id>http://diufanshu.github.io/</id>
   <author>
     <name><![CDATA[Sky Chan]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[有关博客到加载速度]]></title>
+    <title type="html"><![CDATA[有关博客的加载速度]]></title>
     <link href="http://diufanshu.github.io/blog/2015/01/03/you-guan-bo-ke-dao-jia-zai-su-du/"/>
     <updated>2015-01-03T21:34:00+08:00</updated>
     <id>http://diufanshu.github.io/blog/2015/01/03/you-guan-bo-ke-dao-jia-zai-su-du</id>
@@ -24,7 +24,7 @@
 
 <h2>GFW</h2>
 
-<p>GFW 是一切的原因，因为octopress需要加载google的字体库，本来是件多好到事情，怎耐GFW插足，你说有GFW在能不慢吗？网上找到了解决方法，发现360竟然把这字体库搬到墙里来了，这是360唯一一次让我还觉得做了件靠谱到事了。</p>
+<p>GFW 是一切的原因，因为octopress需要加载google的字体库，本来是件多好到事情，怎耐GFW插足，你说有GFW在能不慢吗？网上找到了解决方法，发现360竟然把这字体库搬到墙里来了，这是360唯一一次让我还觉得做了件靠谱的事了。</p>
 
 <p>那么怎么解决问题内？除了修改_config.yml，将墙外到花花世界注释掉之外，主要从两head.html进行配置调整。</p>
 
