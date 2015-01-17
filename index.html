@@ -9,9 +9,10 @@
   <meta name="author" content="Sky Chan">
 
   
-  <meta name="description" content="Lost Stars Adam Levine &ndash; Begin Again Famj7
-Famj7 Please don&rsquo;t see just a bo y caught up in dreams and fantasies. Famj7
-Famj7 Please see &hellip;">
+  <meta name="description" content="Goagent goagent 更新版，设置和旧版本略有不同，不仅要修改proxy.ini 里面的appid，还要找到[dns]项，将enable设置为1。
+然后uploader，重新上传一次配置。（不想重新上传也有办法，见ps）
+如果还是出现类似于
+The requested URL /_gh &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +68,72 @@ Famj7 Please see &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/01/17/you-guan-ke-xue-shang-wang/">有关科学上网</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-01-17T11:40:17+08:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:40 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h1>Goagent</h1>
+
+<p>goagent 更新版，设置和旧版本略有不同，不仅要修改proxy.ini 里面的appid，还要找到[dns]项，将enable设置为1。
+然后uploader，重新上传一次配置。（不想重新上传也有办法，见ps）
+如果还是出现类似于
+The requested URL /_gh/ was not found on this server.
+的问题，Don&rsquo;t panic! 在浏览器里重新导入一次CA.crt证书即可，local文件夹下。</p>
+
+<p>pac篇
+在实验室主机那里，直接把proxy.pac文件修改
+主要是替换127.0.0.1为主机ip
+把FindProxyForURL 中的defaultproxy 变量由原来的&#8217;DIRECT&#8217; 修改为&#8217;PROXY host_ip:port&#8217;
+FindProxyForURLByAdblock中的&#8217;DIRECT&#8217; 修改为&#8217;PROXY host_ip:port&#8217;
+FindProxyForURLByAutoProxy中的&#8217;DIRECT&#8217; 修改为&#8217;PROXY host_ip:port&#8217;
+其中，host_ip:port为所需的实验室主机ip及其端口
+新建pac情景模式，复制进去即可</p>
+
+<p>实验室主机那边，需要修改proxy.ini文件，
+[listen]里的ip项和[dns]里的listen项都从原本默认的127.0.0.1改为0.0.0.0</p>
+
+<p>Enjoy it!</p>
+
+<p>ps: 在google code issue 里面看到有位热心的同学贡献了一堆appid，你懂的！！</p>
+
+<p>zimofanqiang | zimofanqiang1 | zimofanqiang10 | zimofanqiang11 | zimofanqiang12 | zimofanqiang13 | zimofanqiang14 | zimofanqiang15 | zimofanqiang16 | zimofanqiang17 | zimofanqiang18 | zimofanqiang19 | zimofanqiang2 | zimofanqiang20 | zimofanqiang21 | zimofanqiang22 | zimofanqiang23 | zimofanqiang24 | zimofanqiang3 | zimofanqiang4 | zimofanqiang5 | zimofanqiang6 | zimofanqiang7 | zimofanqiang8 | zimofanqiang9 | zhangnraka | zhangnraka1 | zhangnraka10 |
+​</p>
+
+<h1>ShadowSocks</h1>
+
+<p>需要有vps主机，可以找到很多免费的。</p>
+
+<h1>fqrouter</h1>
+
+<p>Android 端利器，可以分享给同网段任意手机甚至是PC</p>
+
+<h1>保持更新</h1>
+
+<p>这段时间期末了，一大堆作业，写的匆匆忙忙，过段时间来修改以及补充。持续保持更新</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -593,6 +660,10 @@ Famj7 Please see &hellip;">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/01/17/you-guan-ke-xue-shang-wang/">有关科学上网</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/01/05/lost-stars-ji-ta-pu/">Lost Stars 吉他谱</a>
       </li>
     
@@ -606,10 +677,6 @@ Famj7 Please see &hellip;">
     
       <li class="post">
         <a href="/blog/2014/12/31/ce-shi-zhong-wen/">测试中文</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/12/31/happy-new-year/">Happy New Year</a>
       </li>
     
   </ul>
