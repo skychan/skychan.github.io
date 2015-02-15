@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Test | Sky's Octopress Blog]]></title>
+  <link href="http://diufanshu.github.io/blog/categories/test/atom.xml" rel="self"/>
+  <link href="http://diufanshu.github.io/"/>
+  <updated>2015-02-14T23:15:05+08:00</updated>
+  <id>http://diufanshu.github.io/</id>
+  <author>
+    <name><![CDATA[Sky Chan]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Happy New Year]]></title>
+    <link href="http://diufanshu.github.io/blog/2014/12/31/happy-new-year/"/>
+    <updated>2014-12-31T21:11:13+08:00</updated>
+    <id>http://diufanshu.github.io/blog/2014/12/31/happy-new-year</id>
+    <content type="html"><![CDATA[<p>This is sky&rsquo;s first blog with octopress, have fun ^-^</p>
+]]></content>
+  </entry>
+  
+</feed>
