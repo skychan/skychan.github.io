@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | Sky's Octopress Blog]]></title>
   <link href="http://diufanshu.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://diufanshu.github.io/"/>
-  <updated>2015-02-15T13:06:20+08:00</updated>
+  <updated>2015-02-15T13:41:49+08:00</updated>
   <id>http://diufanshu.github.io/</id>
   <author>
     <name><![CDATA[Sky Chan]]></name>
@@ -21,6 +21,9 @@
     <content type="html"><![CDATA[<h2>起因</h2>
 
 <p>有童鞋反应说加载速度很慢，这是一个关于举着保护旗号却在做愚蠢的事的悲伤的故事。</p>
+
+<!--more-->
+
 
 <h2>GFW</h2>
 

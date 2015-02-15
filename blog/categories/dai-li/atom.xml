@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 代理 | Sky's Octopress Blog]]></title>
   <link href="http://diufanshu.github.io/blog/categories/dai-li/atom.xml" rel="self"/>
   <link href="http://diufanshu.github.io/"/>
-  <updated>2015-02-15T13:06:20+08:00</updated>
+  <updated>2015-02-15T13:41:49+08:00</updated>
   <id>http://diufanshu.github.io/</id>
   <author>
     <name><![CDATA[Sky Chan]]></name>
@@ -22,7 +22,7 @@
 
 <h2>Goagent 的局域网/公网配置</h2>
 
-<p>goagent 的强大不必多说了吧，项目在github托管:<a href="https://github.com/goagent/goagent">goagent</a>，大家可以通过git clone 的方式来获得最新版本，常见问题在其<a href="https://github.com/goagent/goagent/blob/wiki/FAQ.md">FAQ</a>里都有解答，“为什么要叫 goagent，而不叫 GoProxy？”“一开始叫 GoProxy 的，后来 Hewig 说软件名字带有 proxy 字样不祥，于是就改成了 goagent。”</p>
+<p>goagent 的强大不必多说了吧，项目在github托管:<a href="https://github.com/goagent/goagent">goagent</a>，大家可以通过git clone 的方式来获得最新版本，常见问题在其<a href="https://github.com/goagent/goagent/blob/wiki/FAQ.md">FAQ</a>里都有解答，“为什么要叫 goagent，而不叫 GoProxy？”“一开始叫 GoProxy 的，后来 Hewig 说软件名字带有 proxy 字样不祥，于是就改成了 goagent。”<!--more--></p>
 
 <p>goagent 时常会更新版本，更新后要及时看文档，如果说要重新上传appid，那就再上传一次。一般来说，启动的时候，会自动导入证书，但是也不排除例外，如果出现类似于 The requested URL /_gh/ was not found on this server. 的问题，Don’t panic! 在浏览器里重新导入一次local 目录里的 CA.crt证书即可。</p>
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Sky's Octopress Blog]]></title>
   <link href="http://diufanshu.github.io/atom.xml" rel="self"/>
   <link href="http://diufanshu.github.io/"/>
-  <updated>2015-02-15T13:06:20+08:00</updated>
+  <updated>2015-02-15T13:41:49+08:00</updated>
   <id>http://diufanshu.github.io/</id>
   <author>
     <name><![CDATA[Sky Chan]]></name>
@@ -22,7 +22,7 @@
 
 <h2>Goagent 的局域网/公网配置</h2>
 
-<p>goagent 的强大不必多说了吧，项目在github托管:<a href="https://github.com/goagent/goagent">goagent</a>，大家可以通过git clone 的方式来获得最新版本，常见问题在其<a href="https://github.com/goagent/goagent/blob/wiki/FAQ.md">FAQ</a>里都有解答，“为什么要叫 goagent，而不叫 GoProxy？”“一开始叫 GoProxy 的，后来 Hewig 说软件名字带有 proxy 字样不祥，于是就改成了 goagent。”</p>
+<p>goagent 的强大不必多说了吧，项目在github托管:<a href="https://github.com/goagent/goagent">goagent</a>，大家可以通过git clone 的方式来获得最新版本，常见问题在其<a href="https://github.com/goagent/goagent/blob/wiki/FAQ.md">FAQ</a>里都有解答，“为什么要叫 goagent，而不叫 GoProxy？”“一开始叫 GoProxy 的，后来 Hewig 说软件名字带有 proxy 字样不祥，于是就改成了 goagent。”<!--more--></p>
 
 <p>goagent 时常会更新版本，更新后要及时看文档，如果说要重新上传appid，那就再上传一次。一般来说，启动的时候，会自动导入证书，但是也不排除例外，如果出现类似于 The requested URL /_gh/ was not found on this server. 的问题，Don’t panic! 在浏览器里重新导入一次local 目录里的 CA.crt证书即可。</p>
 
@@ -167,6 +167,9 @@ prot = 8080
     <content type="html"><![CDATA[<h2>Lost Stars</h2>
 
 <p>Adam Levine &ndash; <em>Begin Again</em></p>
+
+<!--more-->
+
 
 <table>
 <thead>
@@ -511,6 +514,9 @@ prot = 8080
 
 <p>有童鞋反应说加载速度很慢，这是一个关于举着保护旗号却在做愚蠢的事的悲伤的故事。</p>
 
+<!--more-->
+
+
 <h2>GFW</h2>
 
 <p>GFW 是一切的原因，因为octopress需要加载google的字体库，本来是件多好到事情，怎耐GFW插足，你说有GFW在能不慢吗？网上找到了解决方法，发现360竟然把这字体库搬到墙里来了，这是360唯一一次让我还觉得做了件靠谱的事了。</p>
@@ -549,7 +555,8 @@ prot = 8080
     <link href="http://diufanshu.github.io/blog/2014/12/31/tian-jia-duo-shuo-ping-lun-mo-kuai/"/>
     <updated>2014-12-31T22:53:46+08:00</updated>
     <id>http://diufanshu.github.io/blog/2014/12/31/tian-jia-duo-shuo-ping-lun-mo-kuai</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<!--more-->
+
 ]]></content>
   </entry>
   
@@ -558,7 +565,8 @@ prot = 8080
     <link href="http://diufanshu.github.io/blog/2014/12/31/ce-shi-zhong-wen/"/>
     <updated>2014-12-31T21:51:56+08:00</updated>
     <id>http://diufanshu.github.io/blog/2014/12/31/ce-shi-zhong-wen</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<!--more-->
+
 ]]></content>
   </entry>
   
@@ -568,6 +576,9 @@ prot = 8080
     <updated>2014-12-31T21:11:13+08:00</updated>
     <id>http://diufanshu.github.io/blog/2014/12/31/happy-new-year</id>
     <content type="html"><![CDATA[<p>This is sky&rsquo;s first blog with octopress, have fun ^-^</p>
+
+<!--more-->
+
 ]]></content>
   </entry>
   
