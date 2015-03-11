@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Octopress | Sky's Octopress Blog]]></title>
-  <link href="http://diufanshu.github.io/blog/categories/octopress/atom.xml" rel="self"/>
+  <title><![CDATA[Category: 配置 | Sky's Octopress Blog]]></title>
+  <link href="http://diufanshu.github.io/blog/categories/pei-zhi/atom.xml" rel="self"/>
   <link href="http://diufanshu.github.io/"/>
-  <updated>2015-03-11T13:36:54+08:00</updated>
+  <updated>2015-03-11T14:28:19+08:00</updated>
   <id>http://diufanshu.github.io/</id>
   <author>
     <name><![CDATA[Sky Chan]]></name>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[更改评论系统为Disqus]]></title>
+    <link href="http://diufanshu.github.io/blog/2015/03/11/geng-gai-ping-lun-xi-tong-wei-disqus/"/>
+    <updated>2015-03-11T14:17:57+08:00</updated>
+    <id>http://diufanshu.github.io/blog/2015/03/11/geng-gai-ping-lun-xi-tong-wei-disqus</id>
+    <content type="html"><![CDATA[<p>昨天发现自己的博客有人开始评论了，都是正面评价，让我高兴了一会儿。后来经Renkai 提醒，或许是网络爬虫干的，着实感到伤心。于是按照他所推荐，还是Disqus 大法好，更改了评论系统。界面不错，就接着用吧。</p>
+
+<p>真心希望有互动，但前提是得有可以互动的内容吧。那就接着努力，好好思考，然后表达出来。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[有关博客的加载速度]]></title>
@@ -55,6 +66,16 @@
 <h2>我的想法</h2>
 
 <p>google 的许多api是多么好到福利，减轻了多少开发者的工作量，然而这么好到工具只因社会意识形态和政治原因而粗暴地屏蔽，历史上也有闭关锁国的愚蠢行为，希望以史为鉴乃。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[添加多说评论模块]]></title>
+    <link href="http://diufanshu.github.io/blog/2014/12/31/tian-jia-duo-shuo-ping-lun-mo-kuai/"/>
+    <updated>2014-12-31T22:53:46+08:00</updated>
+    <id>http://diufanshu.github.io/blog/2014/12/31/tian-jia-duo-shuo-ping-lun-mo-kuai</id>
+    <content type="html"><![CDATA[<!--more-->
+
 ]]></content>
   </entry>
   

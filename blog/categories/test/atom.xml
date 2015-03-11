@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Test | Sky's Octopress Blog]]></title>
   <link href="http://diufanshu.github.io/blog/categories/test/atom.xml" rel="self"/>
   <link href="http://diufanshu.github.io/"/>
-  <updated>2015-03-11T13:36:54+08:00</updated>
+  <updated>2015-03-11T14:28:19+08:00</updated>
   <id>http://diufanshu.github.io/</id>
   <author>
     <name><![CDATA[Sky Chan]]></name>
@@ -12,6 +12,16 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[测试中文]]></title>
+    <link href="http://diufanshu.github.io/blog/2014/12/31/ce-shi-zhong-wen/"/>
+    <updated>2014-12-31T21:51:56+08:00</updated>
+    <id>http://diufanshu.github.io/blog/2014/12/31/ce-shi-zhong-wen</id>
+    <content type="html"><![CDATA[<!--more-->
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Happy New Year]]></title>

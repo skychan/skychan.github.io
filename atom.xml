@@ -4,7 +4,7 @@
   <title><![CDATA[Sky's Octopress Blog]]></title>
   <link href="http://diufanshu.github.io/atom.xml" rel="self"/>
   <link href="http://diufanshu.github.io/"/>
-  <updated>2015-03-11T13:36:54+08:00</updated>
+  <updated>2015-03-11T14:28:19+08:00</updated>
   <id>http://diufanshu.github.io/</id>
   <author>
     <name><![CDATA[Sky Chan]]></name>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[更改评论系统为Disqus]]></title>
+    <link href="http://diufanshu.github.io/blog/2015/03/11/geng-gai-ping-lun-xi-tong-wei-disqus/"/>
+    <updated>2015-03-11T14:17:57+08:00</updated>
+    <id>http://diufanshu.github.io/blog/2015/03/11/geng-gai-ping-lun-xi-tong-wei-disqus</id>
+    <content type="html"><![CDATA[<p>昨天发现自己的博客有人开始评论了，都是正面评价，让我高兴了一会儿。后来经Renkai 提醒，或许是网络爬虫干的，着实感到伤心。于是按照他所推荐，还是Disqus 大法好，更改了评论系统。界面不错，就接着用吧。</p>
+
+<p>真心希望有互动，但前提是得有可以互动的内容吧。那就接着努力，好好思考，然后表达出来。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[善于表达]]></title>
