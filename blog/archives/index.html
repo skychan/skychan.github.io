@@ -9,10 +9,11 @@
   <meta name="author" content="Sky Chan">
 
   
-  <meta name="description" content="Blog Archive 2015 更改评论系统为Disqus
+  <meta name="description" content="Blog Archive 2015 关于vi完美性的一个有趣引证
+May 01 2015 posted in 趣文 更改评论系统为Disqus
 Mar 11 2015 posted in blog, 配置 善于表达
 Feb 24 2015 posted in blog, 随想 科学上网
-Feb 15 2015 posted in 代理, 网络 Lost Stars 吉他谱 &hellip;">
+Feb &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -34,6 +35,38 @@ Feb 15 2015 posted in 代理, 网络 Lost Stars 吉他谱 &hellip;">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="//fonts.useso.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="//fonts.useso.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 </head>
 
@@ -80,6 +113,20 @@ Feb 15 2015 posted in 代理, 网络 Lost Stars 吉他谱 &hellip;">
 
   
   <h2>2015</h2>
+
+<article>
+  
+<h1><a href="/blog/2015/05/01/a-funny-lemma-for-vi/">关于vi完美性的一个有趣引证</a></h1>
+<time datetime="2015-05-01T22:27:02+08:00" pubdate><span class='month'>May</span> <span class='day'>01</span> <span class='year'>2015</span></time>
+
+<footer>
+  <span class="categories">posted in <a class='category' href='/blog/categories/qu-wen/'>趣文</a></span>
+</footer>
+
+
+</article>
+
+
 
 <article>
   
@@ -208,6 +255,10 @@ Feb 15 2015 posted in 代理, 网络 Lost Stars 吉他谱 &hellip;">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/05/01/a-funny-lemma-for-vi/">关于vi完美性的一个有趣引证</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/03/11/geng-gai-ping-lun-xi-tong-wei-disqus/">更改评论系统为Disqus</a>
       </li>
     
@@ -221,10 +272,6 @@ Feb 15 2015 posted in 代理, 网络 Lost Stars 吉他谱 &hellip;">
     
       <li class="post">
         <a href="/blog/2015/01/05/lost-stars-ji-ta-pu/">Lost Stars 吉他谱</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/01/03/you-guan-bo-ke-dao-jia-zai-su-du/">有关博客的加载速度</a>
       </li>
     
   </ul>

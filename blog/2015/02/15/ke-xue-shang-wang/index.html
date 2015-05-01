@@ -32,6 +32,38 @@
 <link href="//fonts.useso.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="//fonts.useso.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
 </head>
 
 <body   >
@@ -287,6 +319,10 @@ prot = 8080
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/05/01/a-funny-lemma-for-vi/">关于vi完美性的一个有趣引证</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/03/11/geng-gai-ping-lun-xi-tong-wei-disqus/">更改评论系统为Disqus</a>
       </li>
     
@@ -300,10 +336,6 @@ prot = 8080
     
       <li class="post">
         <a href="/blog/2015/01/05/lost-stars-ji-ta-pu/">Lost Stars 吉他谱</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/01/03/you-guan-bo-ke-dao-jia-zai-su-du/">有关博客的加载速度</a>
       </li>
     
   </ul>

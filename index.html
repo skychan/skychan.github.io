@@ -9,8 +9,7 @@
   <meta name="author" content="Sky Chan">
 
   
-  <meta name="description" content="昨天发现自己的博客有人开始评论了，都是正面评价，让我高兴了一会儿。后来经Renkai 提醒，或许是网络爬虫干的，着实感到伤心。于是按照他所推荐，还是Disqus 大法好，更改了评论系统。界面不错，就接着用吧。 真心希望有互动，但前提是得有可以互动的内容吧。那就接着努力，好好思考，然后表达出来。
-">
+  <meta name="description" content="关于vi编辑器，有一个有趣的引证，来证明它是完美的。 ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -32,6 +31,38 @@
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="//fonts.useso.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="//fonts.useso.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 </head>
 
@@ -66,6 +97,43 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/05/01/a-funny-lemma-for-vi/">关于vi完美性的一个有趣引证</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-05-01T22:27:02+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2015</span></span> <span class='time'>10:27 pm</span></time>
+        
+           | <a href="/blog/2015/05/01/a-funny-lemma-for-vi/#disqus_thread"
+             data-disqus-identifier="http://diufanshu.github.io/blog/2015/05/01/a-funny-lemma-for-vi/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>关于vi编辑器，有一个有趣的引证，来证明它是完美的。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/05/01/a-funny-lemma-for-vi/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -375,6 +443,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/05/01/a-funny-lemma-for-vi/">关于vi完美性的一个有趣引证</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/03/11/geng-gai-ping-lun-xi-tong-wei-disqus/">更改评论系统为Disqus</a>
       </li>
     
@@ -388,10 +460,6 @@
     
       <li class="post">
         <a href="/blog/2015/01/05/lost-stars-ji-ta-pu/">Lost Stars 吉他谱</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/01/03/you-guan-bo-ke-dao-jia-zai-su-du/">有关博客的加载速度</a>
       </li>
     
   </ul>
