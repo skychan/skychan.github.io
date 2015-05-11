@@ -4,7 +4,7 @@
   <title><![CDATA[Sky's Octopress Blog]]></title>
   <link href="http://diufanshu.github.io/atom.xml" rel="self"/>
   <link href="http://diufanshu.github.io/"/>
-  <updated>2015-05-11T23:09:51+08:00</updated>
+  <updated>2015-05-11T23:19:13+08:00</updated>
   <id>http://diufanshu.github.io/</id>
   <author>
     <name><![CDATA[Sky Chan]]></name>
@@ -69,7 +69,7 @@ IdentitiesOnly yes
 
 <h2>新的问题</h2>
 
-<p>还没来得及高兴，旧发现了一个小问题，我在实验室的另一台机器上部署了git 服务，供实验室内部使用，通过上面的修改，竟然不能在本地的git 服务器上提交代码了。也就是说这个小工具在走代理的时候不能走局域网了，当然最好的办法是把这个小工具的代码改一改，然后重新编译。然而经过一些折腾，发现有更好的办法，就是修改上面的config 文件：</p>
+<p>还没来得及高兴，就发现了一个小问题，我在实验室的另一台机器上部署了git 服务，供实验室内部使用，通过上面的修改，竟然不能在本地的git 服务器上提交代码了。也就是说这个小工具在走代理的时候不能走局域网了，当然最好的办法是把这个小工具的代码改一改，然后重新编译。然而经过一些折腾，发现有更好的办法，就是修改上面的config 文件：</p>
 
 <pre><code>Host github.com
     User git
