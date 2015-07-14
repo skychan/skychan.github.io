@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 配置 | Sky's Octopress Blog]]></title>
+  <link href="http://diufanshu.github.io/blog/categories/pei-zhi/atom.xml" rel="self"/>
+  <link href="http://diufanshu.github.io/"/>
+  <updated>2015-07-14T22:16:28+08:00</updated>
+  <id>http://diufanshu.github.io/</id>
+  <author>
+    <name><![CDATA[Sky Chan]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[SSH 通道的代理设置]]></title>
+    <link href="http://diufanshu.github.io/blog/2015/05/11/use-ssh-through-proxy/"/>
+    <updated>2015-05-11T20:45:38+08:00</updated>
+    <id>http://diufanshu.github.io/blog/2015/05/11/use-ssh-through-proxy</id>
+    <content type="html"><![CDATA[<h2>背景和问题</h2>
+
+<p>在学校实验室，一般都通过服务器配置的代理来上网，因为这样方便，但更重要的是网速！然而代理上网常常会遇到一些小麻烦，在之前的网志里面也讲到一些，今天要来分享的是和ssh 通道相关的代理配置的解决方案。</p>
+
+<!--more-->
+
+
+<p>需要用到ssh 通道的地方还挺多的，比如这个问题的源头：通过代理方式向我的github 托管库中提交代码。由于系统已经设配置好了代理，可以通过http 通道直接提交代码，然而这样的话每次都要输入密码，而使用ssh 通道会提示连接失败的错误。网上有类似的问题提出，并且也有许多解决办法。有些是通过修改git 的配置来实现的，感觉这不是从本质上解决问题，本质上应该是配置ssh 来解决问题。当然，我提供的解决方案也是站在巨人的肩上。</p>
+
+<h2>connect</h2>
+
+<p><a href="https://bitbucket.org/gotoh/connect">connect</a> 提供了可以让ssh 通道走代理的小工具源码,拿到后编译成可执行文件，记得修改权限：</p>
+
+<pre><code>$ gcc -o connect connect.c
+$ sudo chmod +x connect
+$ mv connect ~/bin/connect
+</code></pre>
+
+<p>然后在<code>~/.ssh/</code> 中创建config 文件如下：</p>
+
+<pre><code>ProxyCommand /home/username/bin/connect -S proxyhost:port %h %p  
+Host github.com
+User git
+Port 22
+Hostname github.com
+IdentityFile "/home/username/.ssh/id_rsa"
+TCPKeepAlive yes
+IdentitiesOnly yes
+
+Host ssh.github.com
+User git
+Port 443
+Hostname ssh.github.com
+IdentityFile "/home/username/.ssh/id_rsa"
+TCPKeepAlive yes
+IdentitiesOnly yes
+</code></pre>
+
+<p>把其中的<em>username</em> 替换为你的主机名字，<em>proxyhost:port</em> 替换为你使用的代理地址和端口，然后测试了以下，可以使用代理走通ssh 通道了：</p>
+
+<pre><code>$ ssh -T git@github.com
+Hi diufanshu! You've successfully authenticated, but GitHub does not provide  access.
+</code></pre>
+
+<h2>新的问题</h2>
+
+<p>还没来得及高兴，就发现了一个小问题，我在实验室的另一台机器上部署了git 服务，供实验室内部使用，通过上面的修改，竟然不能在本地的git 服务器上提交代码了。也就是说这个小工具在走代理的时候不能走局域网了，当然最好的办法是把这个小工具的代码改一改，然后重新编译。然而经过一些折腾，发现有更好的办法，就是修改上面的config 文件：</p>
+
+<pre><code>Host github.com
+    User git
+    Port 22
+    Hostname github.com
+    IdentityFile "/home/username/.ssh/id_rsa"
+    TCPKeepAlive yes
+    IdentitiesOnly yes
+    ProxyCommand /home/username/bin/connect -S proxyhost:port %h %p  
+
+Host ssh.github.com
+    User git
+    Port 443
+    Hostname ssh.github.com
+    IdentityFile "/home/username/.ssh/id_rsa"
+    TCPKeepAlive yes
+    IdentitiesOnly yes
+    ProxyCommand /home/username/bin/connect -S proxyhost:port %h %p  
+</code></pre>
+
+<p>这么改的话，只有当请求github.com 和 ssh.github.com 时会使用这个小工具进行代理。测试了一下，果然成功了。</p>
+
+<h2>For Windows</h2>
+
+<p>在Windows 下当然也可以用类似的方法，把connect.c 编译成可执行文件就行了，不过，所谓踏破铁鞋无觅处，git 在 win 下的版本自带了这个工具，在git 的安装目录下bin 文件夹里，这个工具已经编译成了connect.exe 可执行文件，直接用吧。当然需要在你的 ssh 默认配置文件夹里添加这个config文件，下面供参考：</p>
+
+<pre><code>Host github.com
+    User git
+    Port 22
+    Hostname github.com
+    IdentityFile "/d/Users/username/.ssh/id_rsa"
+    TCPKeepAlive yes
+    IdentitiesOnly yes
+    ProxyCommand /bin/connect.exe -S proxyhost:port %h %p  
+
+Host ssh.github.com
+    User git
+    Port 443
+    Hostname ssh.github.com
+    IdentityFile "/d/Users/username/.ssh/id_rsa"
+    TCPKeepAlive yes
+    IdentitiesOnly yes
+    ProxyCommand /bin/connect.exe -S proxyhost:port %h %p  
+</code></pre>
+
+<p>接下来，愉快地玩耍吧。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[更改评论系统为Disqus]]></title>
+    <link href="http://diufanshu.github.io/blog/2015/03/11/geng-gai-ping-lun-xi-tong-wei-disqus/"/>
+    <updated>2015-03-11T14:17:57+08:00</updated>
+    <id>http://diufanshu.github.io/blog/2015/03/11/geng-gai-ping-lun-xi-tong-wei-disqus</id>
+    <content type="html"><![CDATA[<p>昨天发现自己的博客有人开始评论了，都是正面评价，让我高兴了一会儿。后来经Renkai 提醒，或许是网络爬虫干的，着实感到伤心。于是按照他所推荐，还是Disqus 大法好，更改了评论系统。界面不错，就接着用吧。</p>
+
+<p>真心希望有互动，但前提是得有可以互动的内容吧。那就接着努力，好好思考，然后表达出来。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[有关博客的加载速度]]></title>
+    <link href="http://diufanshu.github.io/blog/2015/01/03/you-guan-bo-ke-dao-jia-zai-su-du/"/>
+    <updated>2015-01-03T21:34:00+08:00</updated>
+    <id>http://diufanshu.github.io/blog/2015/01/03/you-guan-bo-ke-dao-jia-zai-su-du</id>
+    <content type="html"><![CDATA[<h2>起因</h2>
+
+<p>有童鞋反应说加载速度很慢，这是一个关于举着保护旗号却在做愚蠢的事的悲伤的故事。</p>
+
+<!--more-->
+
+
+<h2>GFW</h2>
+
+<p>GFW 是一切的原因，因为octopress需要加载google的字体库，本来是件多好到事情，怎耐GFW插足，你说有GFW在能不慢吗？网上找到了解决方法，发现360竟然把这字体库搬到墙里来了，这是360唯一一次让我还觉得做了件靠谱的事了。</p>
+
+<p>那么怎么解决问题内？除了修改_config.yml，将墙外到花花世界注释掉之外，主要从两head.html进行配置调整。</p>
+
+<h2>开始调整</h2>
+
+<h3>1. /source/_include/custom/head.html</h3>
+
+<p>网上大多的方法是去掉这个文件里的google字体设置，但这个配置就两行google的字体库，删除之后还有存在到意义吗？这时候看到说，360把这个字体库搬进来了，真实干了件靠谱到事了。如是修改：</p>
+
+<pre><code>//fonts.googleapis.com/
+</code></pre>
+
+<p>修改为</p>
+
+<pre><code>//fonts.useso.com/
+</code></pre>
+
+<p>即可。
+好激动，立马rake preview，咋回事，没效果，底部怎么在加载 &lsquo;ajax.googleapis.com&#8217;，又是哪个api在加载？经过一番排查，终于找到。</p>
+
+<h3>2. /source/_include/head.html</h3>
+
+<p>这个配置里面搜索一下，找到&#8217;googleapis&#8217;关键字，然后忍痛把这行脚本注释了。重新preview, 终于是加载快了，但是，总觉得这样不好。</p>
+
+<h2>我的想法</h2>
+
+<p>google 的许多api是多么好到福利，减轻了多少开发者的工作量，然而这么好到工具只因社会意识形态和政治原因而粗暴地屏蔽，历史上也有闭关锁国的愚蠢行为，希望以史为鉴乃。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[添加多说评论模块]]></title>
+    <link href="http://diufanshu.github.io/blog/2014/12/31/tian-jia-duo-shuo-ping-lun-mo-kuai/"/>
+    <updated>2014-12-31T22:53:46+08:00</updated>
+    <id>http://diufanshu.github.io/blog/2014/12/31/tian-jia-duo-shuo-ping-lun-mo-kuai</id>
+    <content type="html"><![CDATA[<!--more-->
+
+]]></content>
+  </entry>
+  
+</feed>
