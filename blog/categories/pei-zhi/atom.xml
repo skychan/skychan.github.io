@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 配置 | Sky's Octopress Blog]]></title>
   <link href="http://diufanshu.github.io/blog/categories/pei-zhi/atom.xml" rel="self"/>
   <link href="http://diufanshu.github.io/"/>
-  <updated>2015-05-11T23:19:13+08:00</updated>
+  <updated>2015-08-17T12:05:54+08:00</updated>
   <id>http://diufanshu.github.io/</id>
   <author>
     <name><![CDATA[Sky Chan]]></name>
@@ -158,11 +158,11 @@ Host ssh.github.com
 </code></pre>
 
 <p>即可。
-好激动，立马rake preview，咋回事，没效果，底部怎么在加载 &lsquo;ajax.googleapis.com&#8217;，又是哪个api在加载？经过一番排查，终于找到。</p>
+好激动，立马rake preview，咋回事，没效果，底部怎么在加载 &lsquo;ajax.googleapis.com'，又是哪个api在加载？经过一番排查，终于找到。</p>
 
 <h3>2. /source/_include/head.html</h3>
 
-<p>这个配置里面搜索一下，找到&#8217;googleapis&#8217;关键字，然后忍痛把这行脚本注释了。重新preview, 终于是加载快了，但是，总觉得这样不好。</p>
+<p>这个配置里面搜索一下，找到'googleapis'关键字，然后忍痛把这行脚本注释了。重新preview, 终于是加载快了，但是，总觉得这样不好。</p>
 
 <h2>我的想法</h2>
 
