@@ -1,0 +1,348 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>SSH 通道的代理设置 - Sky's Octopress Blog</title>
+  <meta name="author" content="Sky Chan">
+
+  
+  <meta name="description" content="背景和问题 在学校实验室，一般都通过服务器配置的代理来上网，因为这样方便，但更重要的是网速！然而代理上网常常会遇到一些小麻烦，在之前的网志里面也讲到一些，今天要来分享的是和ssh 通道相关的代理配置的解决方案。 需要用到ssh 通道的地方还挺多的，比如这个问题的源头：通过代理方式向我的github &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <meta name="baidu-site-verification" content="jCamBDkCl7">
+
+  <link rel="canonical" href="http://skychan.github.io/blog/2015/05/11/use-ssh-through-proxy/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Sky's Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.useso.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.useso.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Sky's Octopress Blog</a></h1>
+  
+    <h2>为者常成，行者常至</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="skychan.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">SSH 通道的代理设置</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-05-11T20:45:38+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>8:45 pm</span></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://skychan.github.io">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>背景和问题</h2>
+
+<p>在学校实验室，一般都通过服务器配置的代理来上网，因为这样方便，但更重要的是网速！然而代理上网常常会遇到一些小麻烦，在之前的网志里面也讲到一些，今天要来分享的是和ssh 通道相关的代理配置的解决方案。</p>
+
+<!--more-->
+
+
+<p>需要用到ssh 通道的地方还挺多的，比如这个问题的源头：通过代理方式向我的github 托管库中提交代码。由于系统已经设配置好了代理，可以通过http 通道直接提交代码，然而这样的话每次都要输入密码，而使用ssh 通道会提示连接失败的错误。网上有类似的问题提出，并且也有许多解决办法。有些是通过修改git 的配置来实现的，感觉这不是从本质上解决问题，本质上应该是配置ssh 来解决问题。当然，我提供的解决方案也是站在巨人的肩上。</p>
+
+<h2>connect</h2>
+
+<p><a href="https://bitbucket.org/gotoh/connect">connect</a> 提供了可以让ssh 通道走代理的小工具源码,拿到后编译成可执行文件，记得修改权限：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ gcc -o connect connect.c
+</span><span class='line'>$ sudo chmod +x connect
+</span><span class='line'>$ mv connect ~/bin/connect</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然后在<code>~/.ssh/</code> 中创建config 文件如下：</p>
+
+<pre><code>ProxyCommand /home/username/bin/connect -S proxyhost:port %h %p  
+Host github.com
+User git
+Port 22
+Hostname github.com
+IdentityFile "/home/username/.ssh/id_rsa"
+TCPKeepAlive yes
+IdentitiesOnly yes
+
+Host ssh.github.com
+User git
+Port 443
+Hostname ssh.github.com
+IdentityFile "/home/username/.ssh/id_rsa"
+TCPKeepAlive yes
+IdentitiesOnly yes
+</code></pre>
+
+<p>把其中的<em>username</em> 替换为你的主机名字，<em>proxyhost:port</em> 替换为你使用的代理地址和端口，然后测试了以下，可以使用代理走通ssh 通道了：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ ssh -T git@github.com
+</span><span class='line'>Hi diufanshu! You've successfully authenticated, but GitHub does not provide  access.</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>新的问题</h2>
+
+<p>还没来得及高兴，就发现了一个小问题，我在实验室的另一台机器上部署了git 服务，供实验室内部使用，通过上面的修改，竟然不能在本地的git 服务器上提交代码了。也就是说这个小工具在走代理的时候不能走局域网了，当然最好的办法是把这个小工具的代码改一改，然后重新编译。然而经过一些折腾，发现有更好的办法，就是修改上面的config 文件：</p>
+
+<pre><code>Host github.com
+    User git
+    Port 22
+    Hostname github.com
+    IdentityFile "/home/username/.ssh/id_rsa"
+    TCPKeepAlive yes
+    IdentitiesOnly yes
+    ProxyCommand /home/username/bin/connect -S proxyhost:port %h %p  
+
+Host ssh.github.com
+    User git
+    Port 443
+    Hostname ssh.github.com
+    IdentityFile "/home/username/.ssh/id_rsa"
+    TCPKeepAlive yes
+    IdentitiesOnly yes
+    ProxyCommand /home/username/bin/connect -S proxyhost:port %h %p  
+</code></pre>
+
+<p>这么改的话，只有当请求github.com 和 ssh.github.com 时会使用这个小工具进行代理。测试了一下，果然成功了。</p>
+
+<h2>For Windows</h2>
+
+<p>在Windows 下当然也可以用类似的方法，把connect.c 编译成可执行文件就行了，不过，所谓踏破铁鞋无觅处，git 在 win 下的版本自带了这个工具，在git 的安装目录下bin 文件夹里，这个工具已经编译成了connect.exe 可执行文件，直接用吧。当然需要在你的 ssh 默认配置文件夹里添加这个config文件，下面供参考：</p>
+
+<pre><code>Host github.com
+    User git
+    Port 22
+    Hostname github.com
+    IdentityFile "/d/Users/username/.ssh/id_rsa"
+    TCPKeepAlive yes
+    IdentitiesOnly yes
+    ProxyCommand /bin/connect.exe -S proxyhost:port %h %p  
+
+Host ssh.github.com
+    User git
+    Port 443
+    Hostname ssh.github.com
+    IdentityFile "/d/Users/username/.ssh/id_rsa"
+    TCPKeepAlive yes
+    IdentitiesOnly yes
+    ProxyCommand /bin/connect.exe -S proxyhost:port %h %p  
+</code></pre>
+
+<p>接下来，愉快地玩耍吧。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Sky Chan</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-05-11T20:45:38+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>8:45 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/git/'>git</a>, <a class='category' href='/blog/categories/ssh/'>ssh</a>, <a class='category' href='/blog/categories/dai-li/'>代理</a>, <a class='category' href='/blog/categories/pei-zhi/'>配置</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/05/01/a-funny-lemma-for-vi/" title="Previous Post: 关于vi完美性的一个有趣引证">&laquo; 关于vi完美性的一个有趣引证</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2015/07/14/quantum-computation-course-has-started/" title="Next Post: 量子计算课程开始了">量子计算课程开始了 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/08/23/your-love-or-your-good-at/">所爱还是所擅</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/07/14/quantum-computation-course-has-started/">量子计算课程开始了</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/11/use-ssh-through-proxy/">SSH 通道的代理设置</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/01/a-funny-lemma-for-vi/">关于vi完美性的一个有趣引证</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/11/geng-gai-ping-lun-xi-tong-wei-disqus/">更改评论系统为Disqus</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Sky Chan -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'skyoctopress';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://skychan.github.io/blog/2015/05/11/use-ssh-through-proxy/';
+        var disqus_url = 'http://skychan.github.io/blog/2015/05/11/use-ssh-through-proxy/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
