@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 代理 | Sky's Octopress Blog]]></title>
   <link href="http://skychan.github.io/blog/categories/dai-li/atom.xml" rel="self"/>
   <link href="http://skychan.github.io/"/>
-  <updated>2015-09-25T21:14:10+08:00</updated>
+  <updated>2015-11-01T21:50:56-05:00</updated>
   <id>http://skychan.github.io/</id>
   <author>
     <name><![CDATA[Sky Chan]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[SSH 通道的代理设置]]></title>
     <link href="http://skychan.github.io/blog/2015/05/11/use-ssh-through-proxy/"/>
-    <updated>2015-05-11T20:45:38+08:00</updated>
+    <updated>2015-05-11T08:45:38-04:00</updated>
     <id>http://skychan.github.io/blog/2015/05/11/use-ssh-through-proxy</id>
     <content type="html"><![CDATA[<h2>背景和问题</h2>
 
@@ -116,9 +116,9 @@ Host ssh.github.com
   
   <entry>
     <title type="html"><![CDATA[科学上网]]></title>
-    <link href="http://skychan.github.io/blog/2015/02/15/ke-xue-shang-wang/"/>
-    <updated>2015-02-15T10:51:58+08:00</updated>
-    <id>http://skychan.github.io/blog/2015/02/15/ke-xue-shang-wang</id>
+    <link href="http://skychan.github.io/blog/2015/02/14/ke-xue-shang-wang/"/>
+    <updated>2015-02-14T21:51:58-05:00</updated>
+    <id>http://skychan.github.io/blog/2015/02/14/ke-xue-shang-wang</id>
     <content type="html"><![CDATA[<p>“科学上网是必须技能。”  —— sky chan</p>
 
 <h2>Goagent 的局域网/公网配置</h2>

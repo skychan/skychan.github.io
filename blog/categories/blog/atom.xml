@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Blog | Sky's Octopress Blog]]></title>
   <link href="http://skychan.github.io/blog/categories/blog/atom.xml" rel="self"/>
   <link href="http://skychan.github.io/"/>
-  <updated>2015-09-25T21:14:10+08:00</updated>
+  <updated>2015-11-01T21:50:56-05:00</updated>
   <id>http://skychan.github.io/</id>
   <author>
     <name><![CDATA[Sky Chan]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[更改评论系统为Disqus]]></title>
     <link href="http://skychan.github.io/blog/2015/03/11/geng-gai-ping-lun-xi-tong-wei-disqus/"/>
-    <updated>2015-03-11T14:17:57+08:00</updated>
+    <updated>2015-03-11T02:17:57-04:00</updated>
     <id>http://skychan.github.io/blog/2015/03/11/geng-gai-ping-lun-xi-tong-wei-disqus</id>
     <content type="html"><![CDATA[<p>昨天发现自己的博客有人开始评论了，都是正面评价，让我高兴了一会儿。后来经Renkai 提醒，或许是网络爬虫干的，着实感到伤心。于是按照他所推荐，还是Disqus 大法好，更改了评论系统。界面不错，就接着用吧。</p>
 
@@ -26,9 +26,9 @@
   
   <entry>
     <title type="html"><![CDATA[善于表达]]></title>
-    <link href="http://skychan.github.io/blog/2015/02/24/shan-yu-biao-da/"/>
-    <updated>2015-02-24T11:49:21+08:00</updated>
-    <id>http://skychan.github.io/blog/2015/02/24/shan-yu-biao-da</id>
+    <link href="http://skychan.github.io/blog/2015/02/23/shan-yu-biao-da/"/>
+    <updated>2015-02-23T22:49:21-05:00</updated>
+    <id>http://skychan.github.io/blog/2015/02/23/shan-yu-biao-da</id>
     <content type="html"><![CDATA[<p>这几天在外地拜年，亲戚们走动的主要活动也就是打打牌和四处走走，些许感到百无聊赖，幸亏带了一些可以阅读的东西。阮一峰的网志是这一次阅读的主要内容，感谢网友将其整理成《博客十年》的电子版，让阅读变得十分方便。</p>
 
 <!--more-->
@@ -47,7 +47,7 @@
   <entry>
     <title type="html"><![CDATA[有关博客的加载速度]]></title>
     <link href="http://skychan.github.io/blog/2015/01/03/you-guan-bo-ke-dao-jia-zai-su-du/"/>
-    <updated>2015-01-03T21:34:00+08:00</updated>
+    <updated>2015-01-03T08:34:00-05:00</updated>
     <id>http://skychan.github.io/blog/2015/01/03/you-guan-bo-ke-dao-jia-zai-su-du</id>
     <content type="html"><![CDATA[<h2>起因</h2>
 
@@ -92,7 +92,7 @@
   <entry>
     <title type="html"><![CDATA[添加多说评论模块]]></title>
     <link href="http://skychan.github.io/blog/2014/12/31/tian-jia-duo-shuo-ping-lun-mo-kuai/"/>
-    <updated>2014-12-31T22:53:46+08:00</updated>
+    <updated>2014-12-31T09:53:46-05:00</updated>
     <id>http://skychan.github.io/blog/2014/12/31/tian-jia-duo-shuo-ping-lun-mo-kuai</id>
     <content type="html"><![CDATA[<!--more-->
 
