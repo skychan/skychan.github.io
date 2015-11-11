@@ -4,7 +4,7 @@
   <title><![CDATA[Sky's Octopress Blog]]></title>
   <link href="http://skychan.github.io/atom.xml" rel="self"/>
   <link href="http://skychan.github.io/"/>
-  <updated>2015-11-01T21:50:56-05:00</updated>
+  <updated>2015-11-11T23:52:17+08:00</updated>
   <id>http://skychan.github.io/</id>
   <author>
     <name><![CDATA[Sky Chan]]></name>
@@ -14,16 +14,48 @@
 
   
   <entry>
-    <title type="html"><![CDATA[穿越晨昏圈]]></title>
-    <link href="http://skychan.github.io/blog/2015/10/30/moring-night-circle/"/>
-    <updated>2015-10-30T13:20:53-04:00</updated>
-    <id>http://skychan.github.io/blog/2015/10/30/moring-night-circle</id>
-    <content type="html"><![CDATA[<p>穿越晨昏圈的时候，天边会先变成紫色，然后慢慢转红，云层在飞机下面，非常美丽。</p>
+    <title type="html"><![CDATA[Hello the First Day]]></title>
+    <link href="http://skychan.github.io/blog/2015/11/02/hello-the-first-day/"/>
+    <updated>2015-11-02T10:54:34+08:00</updated>
+    <id>http://skychan.github.io/blog/2015/11/02/hello-the-first-day</id>
+    <content type="html"><![CDATA[<p>会议的第一天，早起是发现多了一个小时，原来今天开始使用冬令，真是天赐的福利，可以多睡一会。因为要准备session，而且第一天还要先去注册，所以起来的时候就顾不上早饭了，直奔了会场的注册点。</p>
+
+<p>会场注册点在二楼的Hall A，也就是之后的展厅，突如其来的英语环境稍稍有点无所适从，在攘攘的展厅中，不知该去哪排队。直到得知队伍是根据名字首字母来分列排的，这才直到该去哪。</p>
+
+<p>领好会议向导资料和会员胸牌，和事先约好的王老师碰头，然后开始了会议的听讲。</p>
 
 <!--more-->
 
 
-<p>一会就到费城了，第一次出国，参加INFORMS 国际会议，满是期待，和这座老城的相遇。只是没想到倒是差(jetlag) 这么痛苦。</p>
+<p>(未完待续)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[穿越晨昏圈]]></title>
+    <link href="http://skychan.github.io/blog/2015/10/31/moring-night-circle/"/>
+    <updated>2015-10-31T01:20:53+08:00</updated>
+    <id>http://skychan.github.io/blog/2015/10/31/moring-night-circle</id>
+    <content type="html"><![CDATA[<p>穿越晨昏圈的时候，天边会先变成紫色，然后慢慢转红，云层在飞机下面，非常美丽。</p>
+
+<p>一会就到费城了，第一次出国，参加INFORMS 国际会议，满是期待，和这座老城的相遇，只是没想到倒时差这么痛苦。</p>
+
+<p><img src="http://thumbsnap.com/s/kCv71Mov.png"></p>
+
+<p>这是在达拉斯转机时候的位置，白天和黑夜。</p>
+
+<!--more-->
+
+
+<h2>前期准备</h2>
+
+<h3>学校方面</h3>
+
+<h3>手续方面</h3>
+
+<h3>住宿，交通以及通讯</h3>
+
+<h2>当天行程</h2>
 
 <p>用Airbnb 订了一间离会场较近的房间，房东Devin 很热情，给我们做了very Hongkong 的早午饭，晚饭又带我们去吃 Philadelphia Chees Steak: Jim&rsquo;s Steak, 分量很足，牛肉够多，只是对我来说量有点大。</p>
 
@@ -36,7 +68,7 @@
   <entry>
     <title type="html"><![CDATA[Thanks]]></title>
     <link href="http://skychan.github.io/blog/2015/09/25/no-title/"/>
-    <updated>2015-09-25T09:06:10-04:00</updated>
+    <updated>2015-09-25T21:06:10+08:00</updated>
     <id>http://skychan.github.io/blog/2015/09/25/no-title</id>
     <content type="html"><![CDATA[<!--more-->
 
@@ -54,7 +86,7 @@
   <entry>
     <title type="html"><![CDATA[所爱还是所擅]]></title>
     <link href="http://skychan.github.io/blog/2015/08/23/your-love-or-your-good-at/"/>
-    <updated>2015-08-23T06:14:20-04:00</updated>
+    <updated>2015-08-23T18:14:20+08:00</updated>
     <id>http://skychan.github.io/blog/2015/08/23/your-love-or-your-good-at</id>
     <content type="html"><![CDATA[<p>狗耳朵推送的 Quora 问答精选<a href="https://www.quora.com/Should-I-study-what-I-want-to-study-or-what-Im-good-at">Should I study what I want to study or what I&rsquo;m good at?</a> 让我想起了之前和小2 聊到过的类似问题，区别是和她讨论的是关于做事，而这个来自 MIT 同学的回答是关于学习。</p>
 
@@ -77,7 +109,7 @@
   <entry>
     <title type="html"><![CDATA[量子计算课程开始了]]></title>
     <link href="http://skychan.github.io/blog/2015/07/14/quantum-computation-course-has-started/"/>
-    <updated>2015-07-14T09:56:24-04:00</updated>
+    <updated>2015-07-14T21:56:24+08:00</updated>
     <id>http://skychan.github.io/blog/2015/07/14/quantum-computation-course-has-started</id>
     <content type="html"><![CDATA[<p>这个夏天，期待已久的量子计算课程开始了，这是一个新的旅程。对我来说，这个领域几乎是完全未知的，有的是满腔的热情和无限的兴趣。学习本身就是一件乐事，写博客也是，所以把学习到的东西，消化下来，做成笔记博客，岂不美哉？</p>
 
@@ -93,7 +125,7 @@
   <entry>
     <title type="html"><![CDATA[SSH 通道的代理设置]]></title>
     <link href="http://skychan.github.io/blog/2015/05/11/use-ssh-through-proxy/"/>
-    <updated>2015-05-11T08:45:38-04:00</updated>
+    <updated>2015-05-11T20:45:38+08:00</updated>
     <id>http://skychan.github.io/blog/2015/05/11/use-ssh-through-proxy</id>
     <content type="html"><![CDATA[<h2>背景和问题</h2>
 
@@ -199,7 +231,7 @@ Host ssh.github.com
   <entry>
     <title type="html"><![CDATA[关于vi完美性的一个有趣引证]]></title>
     <link href="http://skychan.github.io/blog/2015/05/01/a-funny-lemma-for-vi/"/>
-    <updated>2015-05-01T10:27:02-04:00</updated>
+    <updated>2015-05-01T22:27:02+08:00</updated>
     <id>http://skychan.github.io/blog/2015/05/01/a-funny-lemma-for-vi</id>
     <content type="html"><![CDATA[<p>关于vi编辑器，有一个有趣的引证，来证明它是完美的。</p>
 
@@ -224,7 +256,7 @@ Host ssh.github.com
   <entry>
     <title type="html"><![CDATA[更改评论系统为Disqus]]></title>
     <link href="http://skychan.github.io/blog/2015/03/11/geng-gai-ping-lun-xi-tong-wei-disqus/"/>
-    <updated>2015-03-11T02:17:57-04:00</updated>
+    <updated>2015-03-11T14:17:57+08:00</updated>
     <id>http://skychan.github.io/blog/2015/03/11/geng-gai-ping-lun-xi-tong-wei-disqus</id>
     <content type="html"><![CDATA[<p>昨天发现自己的博客有人开始评论了，都是正面评价，让我高兴了一会儿。后来经Renkai 提醒，或许是网络爬虫干的，着实感到伤心。于是按照他所推荐，还是Disqus 大法好，更改了评论系统。界面不错，就接着用吧。</p>
 
@@ -234,9 +266,9 @@ Host ssh.github.com
   
   <entry>
     <title type="html"><![CDATA[善于表达]]></title>
-    <link href="http://skychan.github.io/blog/2015/02/23/shan-yu-biao-da/"/>
-    <updated>2015-02-23T22:49:21-05:00</updated>
-    <id>http://skychan.github.io/blog/2015/02/23/shan-yu-biao-da</id>
+    <link href="http://skychan.github.io/blog/2015/02/24/shan-yu-biao-da/"/>
+    <updated>2015-02-24T11:49:21+08:00</updated>
+    <id>http://skychan.github.io/blog/2015/02/24/shan-yu-biao-da</id>
     <content type="html"><![CDATA[<p>这几天在外地拜年，亲戚们走动的主要活动也就是打打牌和四处走走，些许感到百无聊赖，幸亏带了一些可以阅读的东西。阮一峰的网志是这一次阅读的主要内容，感谢网友将其整理成《博客十年》的电子版，让阅读变得十分方便。</p>
 
 <!--more-->
@@ -254,9 +286,9 @@ Host ssh.github.com
   
   <entry>
     <title type="html"><![CDATA[科学上网]]></title>
-    <link href="http://skychan.github.io/blog/2015/02/14/ke-xue-shang-wang/"/>
-    <updated>2015-02-14T21:51:58-05:00</updated>
-    <id>http://skychan.github.io/blog/2015/02/14/ke-xue-shang-wang</id>
+    <link href="http://skychan.github.io/blog/2015/02/15/ke-xue-shang-wang/"/>
+    <updated>2015-02-15T10:51:58+08:00</updated>
+    <id>http://skychan.github.io/blog/2015/02/15/ke-xue-shang-wang</id>
     <content type="html"><![CDATA[<p>“科学上网是必须技能。”  —— sky chan</p>
 
 <h2>Goagent 的局域网/公网配置</h2>
@@ -414,7 +446,7 @@ prot = 8080
   <entry>
     <title type="html"><![CDATA[Lost Stars 吉他谱]]></title>
     <link href="http://skychan.github.io/blog/2015/01/05/lost-stars-ji-ta-pu/"/>
-    <updated>2015-01-05T06:35:33-05:00</updated>
+    <updated>2015-01-05T19:35:33+08:00</updated>
     <id>http://skychan.github.io/blog/2015/01/05/lost-stars-ji-ta-pu</id>
     <content type="html"><![CDATA[<h2>Lost Stars</h2>
 
@@ -760,7 +792,7 @@ prot = 8080
   <entry>
     <title type="html"><![CDATA[有关博客的加载速度]]></title>
     <link href="http://skychan.github.io/blog/2015/01/03/you-guan-bo-ke-dao-jia-zai-su-du/"/>
-    <updated>2015-01-03T08:34:00-05:00</updated>
+    <updated>2015-01-03T21:34:00+08:00</updated>
     <id>http://skychan.github.io/blog/2015/01/03/you-guan-bo-ke-dao-jia-zai-su-du</id>
     <content type="html"><![CDATA[<h2>起因</h2>
 
@@ -805,7 +837,7 @@ prot = 8080
   <entry>
     <title type="html"><![CDATA[添加多说评论模块]]></title>
     <link href="http://skychan.github.io/blog/2014/12/31/tian-jia-duo-shuo-ping-lun-mo-kuai/"/>
-    <updated>2014-12-31T09:53:46-05:00</updated>
+    <updated>2014-12-31T22:53:46+08:00</updated>
     <id>http://skychan.github.io/blog/2014/12/31/tian-jia-duo-shuo-ping-lun-mo-kuai</id>
     <content type="html"><![CDATA[<!--more-->
 
@@ -815,7 +847,7 @@ prot = 8080
   <entry>
     <title type="html"><![CDATA[测试中文]]></title>
     <link href="http://skychan.github.io/blog/2014/12/31/ce-shi-zhong-wen/"/>
-    <updated>2014-12-31T08:51:56-05:00</updated>
+    <updated>2014-12-31T21:51:56+08:00</updated>
     <id>http://skychan.github.io/blog/2014/12/31/ce-shi-zhong-wen</id>
     <content type="html"><![CDATA[<!--more-->
 
@@ -825,7 +857,7 @@ prot = 8080
   <entry>
     <title type="html"><![CDATA[Happy New Year]]></title>
     <link href="http://skychan.github.io/blog/2014/12/31/happy-new-year/"/>
-    <updated>2014-12-31T08:11:13-05:00</updated>
+    <updated>2014-12-31T21:11:13+08:00</updated>
     <id>http://skychan.github.io/blog/2014/12/31/happy-new-year</id>
     <content type="html"><![CDATA[<p>This is sky&rsquo;s first blog with octopress, have fun ^-^</p>
 
