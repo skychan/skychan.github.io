@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Git | Sky's Octopress Blog]]></title>
   <link href="http://skychan.github.io/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://skychan.github.io/"/>
-  <updated>2015-11-11T23:52:17+08:00</updated>
+  <updated>2015-11-13T17:47:07+08:00</updated>
   <id>http://skychan.github.io/</id>
   <author>
     <name><![CDATA[Sky Chan]]></name>
@@ -36,27 +36,45 @@ $ sudo chmod +x connect
 $ mv connect ~/bin/connect
 </code></pre>
 
-<p>然后在<code>~/.ssh/</code> 中创建config 文件如下：</p>
-
-<pre><code>ProxyCommand /home/username/bin/connect -S proxyhost:port %h %p  
-Host github.com
-User git
-Port 22
-Hostname github.com
-IdentityFile "/home/username/.ssh/id_rsa"
-TCPKeepAlive yes
-IdentitiesOnly yes
-
-Host ssh.github.com
-User git
-Port 443
-Hostname ssh.github.com
-IdentityFile "/home/username/.ssh/id_rsa"
-TCPKeepAlive yes
-IdentitiesOnly yes
-</code></pre>
-
-<p>把其中的<em>username</em> 替换为你的主机名字，<em>proxyhost:port</em> 替换为你使用的代理地址和端口，然后测试了以下，可以使用代理走通ssh 通道了：</p>
+<p>然后在<code>~/.ssh/</code> 中创建config 文件如下：
+<figure class='code'><figcaption><span>~/.ssh/config </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ProxyCommand /home/username/bin/connect -S proxyhost:port %h %p
+</span><span class='line'>    Host github.com
+</span><span class='line'>    User git
+</span><span class='line'>    Port 22
+</span><span class='line'>    Hostname github.com
+</span><span class='line'>    IdentityFile &ldquo;/home/username/.ssh/id_rsa&rdquo;
+</span><span class='line'>    TCPKeepAlive yes
+</span><span class='line'>    IdentitiesOnly yes&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>Host ssh.github.com
+</span><span class='line'>User git
+</span><span class='line'>Port 443
+</span><span class='line'>Hostname ssh.github.com
+</span><span class='line'>IdentityFile "/home/username/.ssh/id_rsa"
+</span><span class='line'>TCPKeepAlive yes
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure>
+把其中的<em>username</em> 替换为你的主机名字，<em>proxyhost:port</em> 替换为你使用的代理地址和端口，然后测试了以下，可以使用代理走通ssh 通道了：</p>
 
 <pre><code>$ ssh -T git@github.com
 Hi diufanshu! You've successfully authenticated, but GitHub does not provide  access.
@@ -64,26 +82,42 @@ Hi diufanshu! You've successfully authenticated, but GitHub does not provide  ac
 
 <h2>新的问题</h2>
 
-<p>还没来得及高兴，就发现了一个小问题，我在实验室的另一台机器上部署了git 服务，供实验室内部使用，通过上面的修改，竟然不能在本地的git 服务器上提交代码了。也就是说这个小工具在走代理的时候不能走局域网了，当然最好的办法是把这个小工具的代码改一改，然后重新编译。然而经过一些折腾，发现有更好的办法，就是修改上面的config 文件：</p>
-
-<pre><code>Host github.com
-    User git
-    Port 22
-    Hostname github.com
-    IdentityFile "/home/username/.ssh/id_rsa"
-    TCPKeepAlive yes
-    IdentitiesOnly yes
-    ProxyCommand /home/username/bin/connect -S proxyhost:port %h %p  
-
-Host ssh.github.com
-    User git
-    Port 443
-    Hostname ssh.github.com
-    IdentityFile "/home/username/.ssh/id_rsa"
-    TCPKeepAlive yes
-    IdentitiesOnly yes
-    ProxyCommand /home/username/bin/connect -S proxyhost:port %h %p  
-</code></pre>
+<p>还没来得及高兴，就发现了一个小问题，我在实验室的另一台机器上部署了git 服务，供实验室内部使用，通过上面的修改，竟然不能在本地的git 服务器上提交代码了。也就是说这个小工具在走代理的时候不能走局域网了，当然最好的办法是把这个小工具的代码改一改，然后重新编译。然而经过一些折腾，发现有更好的办法，就是修改上面的config 文件：
+<figure class='code'><figcaption><span>~/.ssh/config </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Host github.com
+</span><span class='line'>    User git
+</span><span class='line'>    Port 22
+</span><span class='line'>    Hostname github.com
+</span><span class='line'>    IdentityFile &ldquo;/home/username/.ssh/id_rsa&rdquo;
+</span><span class='line'>    TCPKeepAlive yes
+</span><span class='line'>    IdentitiesOnly yes
+</span><span class='line'>    ProxyCommand /home/username/bin/connect -S proxyhost:port %h %p&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>Host ssh.github.com
+</span><span class='line'>    User git
+</span><span class='line'>    Port 443
+</span><span class='line'>    Hostname ssh.github.com
+</span><span class='line'>    IdentityFile &ldquo;/home/username/.ssh/id_rsa&rdquo;
+</span><span class='line'>    TCPKeepAlive yes
+</span><span class='line'>    IdentitiesOnly yes
+</span><span class='line'>    ProxyCommand /home/username/bin/connect -S proxyhost:port %h %p&lt;br/></span></code></pre></td></tr></table></div></figure></p>
 
 <p>这么改的话，只有当请求github.com 和 ssh.github.com 时会使用这个小工具进行代理。测试了一下，果然成功了。</p>
 
