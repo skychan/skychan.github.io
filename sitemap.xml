@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://skychan.github.io/blog/2015/12/13/ting-jian-chen-qi-zhen/</loc>
+    <lastmod>2015-12-13T15:46:22+08:00</lastmod>
+  </url>
+  <url>
     <loc>http://skychan.github.io/blog/2015/11/12/chuan-xing-zai-fei-cheng/</loc>
     <lastmod>2015-11-12T21:37:59+08:00</lastmod>
   </url>
@@ -130,6 +134,12 @@
   </url>
   <url>
     <loc>http://skychan.github.io/blog/categories/xue-zhu/</loc>
+  </url>
+  <url>
+    <loc>http://skychan.github.io/blog/categories/yin-le-wai-lian/</loc>
+  </url>
+  <url>
+    <loc>http://skychan.github.io/blog/categories/chen-qi-zhen/</loc>
   </url>
   <url>
     <loc>http://skychan.github.io/posts/2/</loc>
