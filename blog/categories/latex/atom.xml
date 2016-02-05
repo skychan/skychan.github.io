@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Latex | Sky's Octopress Blog]]></title>
   <link href="http://skychan.github.io/blog/categories/latex/atom.xml" rel="self"/>
   <link href="http://skychan.github.io/"/>
-  <updated>2016-02-05T14:38:52+08:00</updated>
+  <updated>2016-02-05T16:49:18+08:00</updated>
   <id>http://skychan.github.io/</id>
   <author>
     <name><![CDATA[Sky Chan]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Vim-latex 整合latexmk]]></title>
-    <link href="http://skychan.github.io/blog/2016/02/05/test/"/>
+    <link href="http://skychan.github.io/blog/2016/02/05/latexmk-implement-vim-latex/"/>
     <updated>2016-02-05T00:40:39+08:00</updated>
-    <id>http://skychan.github.io/blog/2016/02/05/test</id>
+    <id>http://skychan.github.io/blog/2016/02/05/latexmk-implement-vim-latex</id>
     <content type="html"><![CDATA[<p>今日体验了一把vim-latex 插件，感觉很棒，然而挑剔的我还是遇到了几个问题：</p>
 
 <ol>
