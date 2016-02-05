@@ -4,7 +4,7 @@
   <title><![CDATA[Sky's Octopress Blog]]></title>
   <link href="http://skychan.github.io/atom.xml" rel="self"/>
   <link href="http://skychan.github.io/"/>
-  <updated>2015-12-13T16:14:55+08:00</updated>
+  <updated>2016-02-05T14:38:52+08:00</updated>
   <id>http://skychan.github.io/</id>
   <author>
     <name><![CDATA[Sky Chan]]></name>
@@ -12,6 +12,138 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Vim-latex 整合latexmk]]></title>
+    <link href="http://skychan.github.io/blog/2016/02/05/test/"/>
+    <updated>2016-02-05T00:40:39+08:00</updated>
+    <id>http://skychan.github.io/blog/2016/02/05/test</id>
+    <content type="html"><![CDATA[<p>今日体验了一把vim-latex 插件，感觉很棒，然而挑剔的我还是遇到了几个问题：</p>
+
+<ol>
+<li><p>OSX 系统中Alt 键相关的快捷键失效。</p></li>
+<li><p>插件自带的编译快捷键<code>\ll</code>只能用pdflatex 引擎，并且有编号的时候需要多编译几次，而我通常使用的是xetex 引擎。</p></li>
+</ol>
+
+
+<!--more-->
+
+
+<p>问题1 比较容易解决，把用到的Alt 相关快捷键重新绑定到Meta(Option)键上，经过一番Google，参考vim-latex 插件文档<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> 以及sidyll 在stackoverflow 上解决关于alt 的绑定的方法<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup> 的灵感，作出解决方案：</p>
+
+<figure class='code'><figcaption><span>.vimrc </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>imap ¬ &lt;Plug>Tex_LeftRight
+</span><span class='line'>imap ∫ &lt;Plug>Tex_MathBF
+</span><span class='line'>imap ç &lt;Plug>Tex_MathCal
+</span><span class='line'>imap ˆ &lt;Plug>Tex_InsertItemOnThisLine</span></code></pre></td></tr></table></div></figure>
+
+
+<p>问题2 稍微棘手一点，也绕了一个弯。首先参考了Mass 在tex.stackexchange上的关于设置xelatex的方法<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup> 作出如下修改：</p>
+
+<figure class='code'><figcaption><span>.vimrc </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function ComplieWithXeTeX()
+</span><span class='line'>    let oldRule = g:Tex_CompileRule_pdf
+</span><span class='line'>    let g:Tex_CompileRule_pdf = 'xelatex --synctex=-1 -src-specials -interac    tion=nonstopmode $*'
+</span><span class='line'>    call Tex_RunLaTeX()
+</span><span class='line'>    let g:Tex_CompileRule_pdf = oldRule
+</span><span class='line'>endfunction
+</span><span class='line'>map &lt;Leader>lx :&lt;C-U>call ComplieWithXeTeX()&lt;CR></span></code></pre></td></tr></table></div></figure>
+
+
+<p>通过临时改变<code>Tex_CompileRule_pdf</code>这个内置参数，来调用所需引擎 。现在，问题似乎解决了，通过lx来使用xelatex，ll启动pdflatex，但是，有编号的时候，比如引用公式，则需要编译多次，不太方便，曾样才能像使用<code>latexmk</code> 这个命令这么方便呢？在Brian 的博客<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup>的启发下，得到如下解决办法：</p>
+
+<figure class='code'><figcaption><span>.vimrc </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function CompileWithLatexmk()
+</span><span class='line'>    let targ = expand("%:t")
+</span><span class='line'>    execute '!latexmk '. targ
+</span><span class='line'>    call ErrorCheck()
+</span><span class='line'>endfunction
+</span><span class='line'>function ErrorCheck()
+</span><span class='line'>    let log = expand("%:r") . "." . "log"
+</span><span class='line'>    try
+</span><span class='line'>         silent execute 'vimgrep /^!/ ' . log
+</span><span class='line'>        copen
+</span><span class='line'>        catch /^Vim\%((\a\+)\)\=:E480/
+</span><span class='line'>    endtry
+</span><span class='line'>endfunction
+</span><span class='line'>map &lt;Leader>lg :&lt;C-U>call CompileWithLatexmk()&lt;CR></span></code></pre></td></tr></table></div></figure>
+
+
+<p>加入了错误日志回复，虽然也能用了，但是和原生的插件错误日志显示完全不同，关闭会关闭整个文档。正当一筹莫展之际，灵感一现的我突然想到，如果把第一个方法结合<code>latexmk</code>，不就完美了？所以最终解决方案如下：</p>
+
+<figure class='code'><figcaption><span>.vimrc </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function ComplieWithXeTeX()
+</span><span class='line'>    let oldRule = g:Tex_CompileRule_pdf
+</span><span class='line'>    let g:Tex_CompileRule_pdf = 'latexmk --synctex=-1 -src-specials -interac    tion=nonstopmode $*'
+</span><span class='line'>    call Tex_RunLaTeX()
+</span><span class='line'>    let g:Tex_CompileRule_pdf = oldRule
+</span><span class='line'>endfunction
+</span><span class='line'>map &lt;Leader>lx :&lt;C-U>call ComplieWithXeTeX()&lt;CR>
+</span><span class='line'>
+</span><span class='line'>function CleanTempFiles()
+</span><span class='line'>    execute '!latexmk -c'
+</span><span class='line'>endfunction
+</span><span class='line'>map &lt;Leader>lc :&lt;C-U>call CleanTempFiles()&lt;CR></span></code></pre></td></tr></table></div></figure>
+
+
+<p>其实就是把<code>xelatex</code>换成<code>latexmk</code>，最后还增加定义了自动清理临时文件的命令。</p>
+
+<p>最后，祭出我的<code>.latexmkrc</code><sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>，希望能帮到偶然读到的人。</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p><a href="http://vim-latex.sourceforge.net/documentation/latex-suite/latex-suite-maps.html">Vim-latex User Manual 10.1 Latex-Suite Maps</a><a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+<li id="fn:2">
+<p><a href="http://stackoverflow.com/questions/5379837/is-it-possible-to-mapping-alt-hjkl-in-insert-mode">Can I map Alt key in Vim?</a><a href="#fnref:2" rev="footnote">&#8617;</a></p></li>
+<li id="fn:3">
+<p><a href="http://tex.stackexchange.com/questions/150770/how-to-make-vim-short-key-for-xelatex-and-pdflatex-both">How to make vim short key for xelatex and pdflatex both?</a><a href="#fnref:3" rev="footnote">&#8617;</a></p></li>
+<li id="fn:4">
+<p><a href="http://www.hesperusisphosphorus.com/blog/2014/01/25/compile-with-latexmk/">Compile with Latexmk in Vim</a><a href="#fnref:4" rev="footnote">&#8617;</a></p></li>
+<li id="fn:5">
+<p><a href="https://gist.github.com/skychan/153b764daf585b308356">My Github Gist</a><a href="#fnref:5" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[听见陳綺貞]]></title>

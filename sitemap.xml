@@ -1,144 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>http://skychan.github.io/blog/2015/12/13/ting-jian-chen-qi-zhen/</loc>
-    <lastmod>2015-12-13T15:46:22+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/2015/11/12/chuan-xing-zai-fei-cheng/</loc>
-    <lastmod>2015-11-12T21:37:59+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/2015/11/12/xue-zhu-zai-fei-cheng/</loc>
-    <lastmod>2015-11-12T21:37:31+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/2015/11/02/hello-the-first-day/</loc>
-    <lastmod>2015-11-02T10:54:34+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/2015/10/31/moring-night-circle/</loc>
-    <lastmod>2015-10-31T01:20:53+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/2015/09/25/no-title/</loc>
-    <lastmod>2015-09-25T21:06:10+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/2015/08/23/your-love-or-your-good-at/</loc>
-    <lastmod>2015-08-23T18:14:20+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/2015/07/14/quantum-computation-course-has-started/</loc>
-    <lastmod>2015-07-14T21:56:24+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/2015/05/11/use-ssh-through-proxy/</loc>
-    <lastmod>2015-05-11T20:45:38+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/2015/05/01/a-funny-lemma-for-vi/</loc>
-    <lastmod>2015-05-01T22:27:02+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/2015/03/11/geng-gai-ping-lun-xi-tong-wei-disqus/</loc>
-    <lastmod>2015-03-11T14:17:57+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/2015/02/24/shan-yu-biao-da/</loc>
-    <lastmod>2015-02-24T11:49:21+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/2015/02/15/ke-xue-shang-wang/</loc>
-    <lastmod>2015-02-15T10:51:58+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/2015/01/05/lost-stars-ji-ta-pu/</loc>
-    <lastmod>2015-01-05T19:35:33+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/2015/01/03/you-guan-bo-ke-dao-jia-zai-su-du/</loc>
-    <lastmod>2015-01-03T21:34:00+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/2014/12/31/tian-jia-duo-shuo-ping-lun-mo-kuai/</loc>
-    <lastmod>2014-12-31T22:53:46+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/2014/12/31/ce-shi-zhong-wen/</loc>
-    <lastmod>2014-12-31T21:51:56+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/2014/12/31/happy-new-year/</loc>
-    <lastmod>2014-12-31T21:11:13+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/archives/</loc>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/</loc>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/super-awesome/</loc>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/categories/test/</loc>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/categories/blog/</loc>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/categories/pei-zhi/</loc>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/categories/yin-le/</loc>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/categories/ji-ta-pu/</loc>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/categories/dai-li/</loc>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/categories/wang-luo/</loc>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/categories/sui-xiang/</loc>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/categories/qu-wen/</loc>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/categories/ssh/</loc>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/categories/git/</loc>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/categories/liang-zi-ji-suan/</loc>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/categories/suan-fa/</loc>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/categories/ke-cheng-bi-ji/</loc>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/categories/informs-nian-hui/</loc>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/categories/lu-xing/</loc>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/categories/fei-cheng/</loc>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/categories/xue-zhu/</loc>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/categories/yin-le-wai-lian/</loc>
-  </url>
-  <url>
-    <loc>http://skychan.github.io/blog/categories/chen-qi-zhen/</loc>
-  </url>
+<url>
+<loc>http://skychan.github.io/blog/2016/02/05/test/</loc>
+<lastmod>2016-02-05T00:40:39+08:00</lastmod>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/2015/12/13/ting-jian-chen-qi-zhen/</loc>
+<lastmod>2015-12-13T15:46:22+08:00</lastmod>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/2015/11/12/chuan-xing-zai-fei-cheng/</loc>
+<lastmod>2015-11-12T21:37:59+08:00</lastmod>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/2015/11/12/xue-zhu-zai-fei-cheng/</loc>
+<lastmod>2015-11-12T21:37:31+08:00</lastmod>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/2015/11/02/hello-the-first-day/</loc>
+<lastmod>2015-11-02T10:54:34+08:00</lastmod>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/2015/10/31/moring-night-circle/</loc>
+<lastmod>2015-10-31T01:20:53+08:00</lastmod>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/2015/09/25/no-title/</loc>
+<lastmod>2015-09-25T21:06:10+08:00</lastmod>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/2015/08/23/your-love-or-your-good-at/</loc>
+<lastmod>2015-08-23T18:14:20+08:00</lastmod>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/2015/07/14/quantum-computation-course-has-started/</loc>
+<lastmod>2015-07-14T21:56:24+08:00</lastmod>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/2015/05/11/use-ssh-through-proxy/</loc>
+<lastmod>2015-05-11T20:45:38+08:00</lastmod>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/2015/05/01/a-funny-lemma-for-vi/</loc>
+<lastmod>2015-05-01T22:27:02+08:00</lastmod>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/2015/03/11/geng-gai-ping-lun-xi-tong-wei-disqus/</loc>
+<lastmod>2015-03-11T14:17:57+08:00</lastmod>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/2015/02/24/shan-yu-biao-da/</loc>
+<lastmod>2015-02-24T11:49:21+08:00</lastmod>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/2015/02/15/ke-xue-shang-wang/</loc>
+<lastmod>2015-02-15T10:51:58+08:00</lastmod>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/2015/01/05/lost-stars-ji-ta-pu/</loc>
+<lastmod>2015-01-05T19:35:33+08:00</lastmod>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/2015/01/03/you-guan-bo-ke-dao-jia-zai-su-du/</loc>
+<lastmod>2015-01-03T21:34:00+08:00</lastmod>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/2014/12/31/tian-jia-duo-shuo-ping-lun-mo-kuai/</loc>
+<lastmod>2014-12-31T22:53:46+08:00</lastmod>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/2014/12/31/ce-shi-zhong-wen/</loc>
+<lastmod>2014-12-31T21:51:56+08:00</lastmod>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/2014/12/31/happy-new-year/</loc>
+<lastmod>2014-12-31T21:11:13+08:00</lastmod>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/archives/</loc>
+</url>
+<url>
+<loc>http://skychan.github.io/</loc>
+</url>
+<url>
+<loc>http://skychan.github.io/super-awesome/</loc>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/categories/test/</loc>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/categories/blog/</loc>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/categories/pei-zhi/</loc>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/categories/yin-le/</loc>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/categories/ji-ta-pu/</loc>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/categories/dai-li/</loc>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/categories/wang-luo/</loc>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/categories/sui-xiang/</loc>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/categories/qu-wen/</loc>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/categories/ssh/</loc>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/categories/git/</loc>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/categories/liang-zi-ji-suan/</loc>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/categories/suan-fa/</loc>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/categories/ke-cheng-bi-ji/</loc>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/categories/informs-nian-hui/</loc>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/categories/lu-xing/</loc>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/categories/fei-cheng/</loc>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/categories/xue-zhu/</loc>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/categories/yin-le-wai-lian/</loc>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/categories/chen-qi-zhen/</loc>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/categories/latex/</loc>
+</url>
 </urlset>
