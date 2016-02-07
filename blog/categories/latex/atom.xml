@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Latex | Sky's Octopress Blog]]></title>
   <link href="http://skychan.github.io/blog/categories/latex/atom.xml" rel="self"/>
   <link href="http://skychan.github.io/"/>
-  <updated>2016-02-05T16:49:18+08:00</updated>
+  <updated>2016-02-07T12:56:58+08:00</updated>
   <id>http://skychan.github.io/</id>
   <author>
     <name><![CDATA[Sky Chan]]></name>
@@ -52,7 +52,7 @@
 <span class='line-number'>7</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>function ComplieWithXeTeX()
 </span><span class='line'>    let oldRule = g:Tex_CompileRule_pdf
-</span><span class='line'>    let g:Tex_CompileRule_pdf = &lsquo;xelatex &ndash;synctex=-1 -src-specials -interac    tion=nonstopmode $*&rsquo;
+</span><span class='line'>    let g:Tex_CompileRule_pdf = &lsquo;xelatex &ndash;synctex=-1 -src-specials -interaction=nonstopmode $*&rsquo;
 </span><span class='line'>    call Tex_RunLaTeX()
 </span><span class='line'>    let g:Tex_CompileRule_pdf = oldRule
 </span><span class='line'>endfunction
@@ -104,7 +104,7 @@
 <span class='line-number'>12</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>function ComplieWithXeTeX()
 </span><span class='line'>    let oldRule = g:Tex_CompileRule_pdf
-</span><span class='line'>    let g:Tex_CompileRule_pdf = &lsquo;latexmk &ndash;synctex=-1 -src-specials -interac    tion=nonstopmode $*&rsquo;
+</span><span class='line'>    let g:Tex_CompileRule_pdf = &lsquo;latexmk &ndash;synctex=-1 -src-specials -interaction=nonstopmode $*&rsquo;
 </span><span class='line'>    call Tex_RunLaTeX()
 </span><span class='line'>    let g:Tex_CompileRule_pdf = oldRule
 </span><span class='line'>endfunction
