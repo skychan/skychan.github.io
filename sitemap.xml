@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>http://skychan.github.io/blog/2016/02/20/he-dou-ban-de-duan-she-chi/</loc>
-<lastmod>2016-02-20T15:07:55+08:00</lastmod>
+<loc>http://skychan.github.io/blog/2016/06/20/texlive-kua-ban-ben-geng-xin/</loc>
+<lastmod>2016-06-20T22:25:52+08:00</lastmod>
 </url>
 <url>
 <loc>http://skychan.github.io/blog/2016/02/05/latexmk-implement-vim-latex/</loc>
@@ -81,10 +81,10 @@
 <lastmod>2014-12-31T21:11:13+08:00</lastmod>
 </url>
 <url>
-<loc>http://skychan.github.io/</loc>
+<loc>http://skychan.github.io/blog/archives/</loc>
 </url>
 <url>
-<loc>http://skychan.github.io/blog/archives/</loc>
+<loc>http://skychan.github.io/</loc>
 </url>
 <url>
 <loc>http://skychan.github.io/super-awesome/</loc>
@@ -153,6 +153,6 @@
 <loc>http://skychan.github.io/blog/categories/latex/</loc>
 </url>
 <url>
-<loc>http://skychan.github.io/blog/categories/yi-shi/</loc>
+<loc>http://skychan.github.io/posts/2/</loc>
 </url>
 </urlset>

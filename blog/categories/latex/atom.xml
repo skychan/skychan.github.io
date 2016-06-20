@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Latex | Sky's Octopress Blog]]></title>
   <link href="http://skychan.github.io/blog/categories/latex/atom.xml" rel="self"/>
   <link href="http://skychan.github.io/"/>
-  <updated>2016-02-20T21:08:09+08:00</updated>
+  <updated>2016-06-20T22:36:31+08:00</updated>
   <id>http://skychan.github.io/</id>
   <author>
     <name><![CDATA[Sky Chan]]></name>
@@ -12,6 +12,20 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[TexLive 跨版本更新]]></title>
+    <link href="http://skychan.github.io/blog/2016/06/20/texlive-kua-ban-ben-geng-xin/"/>
+    <updated>2016-06-20T22:25:52+08:00</updated>
+    <id>http://skychan.github.io/blog/2016/06/20/texlive-kua-ban-ben-geng-xin</id>
+    <content type="html"><![CDATA[<p>前段时间，TexLive 2016 发布了，也就意味着2015 版本不再更新。官方是不让跨版本升级的，各大论坛也如是说。然而我发现并非如此，而且需要做的很简单。</p>
+
+<!--more-->
+
+
+<p>举例来说，如果从<a href="http://mirrors.ustc.edu.cn/CTAN/">中科大镜像站</a>作为仓库源，那么下载<a href="http://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet/update-tlmgr-latest.sh">update-tlmgr-latest.sh</a>，然后执行，就可以了。如果你觉得要再做什么，那么就把本地的<code>2015</code>路径名改为<code>2016</code>，并修改相应环境变量为<code>2016</code>即可，然后愉快地更新吧。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Vim-latex 整合latexmk]]></title>
