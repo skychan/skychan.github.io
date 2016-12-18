@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Latex | Sky's Octopress Blog]]></title>
   <link href="http://skychan.github.io/blog/categories/latex/atom.xml" rel="self"/>
   <link href="http://skychan.github.io/"/>
-  <updated>2016-06-20T22:57:11+08:00</updated>
+  <updated>2016-12-18T10:53:38+08:00</updated>
   <id>http://skychan.github.io/</id>
   <author>
     <name><![CDATA[Sky Chan]]></name>
@@ -45,15 +45,11 @@
 
 <p>问题1 比较容易解决，把用到的Alt 相关快捷键重新绑定到Meta(Option)键上，经过一番Google，参考vim-latex 插件文档<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> 以及sidyll 在stackoverflow 上解决关于alt 的绑定的方法<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup> 的灵感，作出解决方案：</p>
 
-<p><figure class='code'><figcaption><span>.vimrc </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>imap ¬ &lt;Plug>Tex_LeftRight
-</span><span class='line'>imap ∫ &lt;Plug>Tex_MathBF
-</span><span class='line'>imap ç &lt;Plug>Tex_MathCal
-</span><span class='line'>imap ˆ &lt;Plug>Tex_InsertItemOnThisLine</span></code></pre></td></tr></table></div></figure></p>
+<pre><code class="java">imap ¬ &lt;Plug&gt;Tex_LeftRight
+imap ∫ &lt;Plug&gt;Tex_MathBF
+imap ç &lt;Plug&gt;Tex_MathCal
+imap ˆ &lt;Plug&gt;Tex_InsertItemOnThisLine
+</code></pre>
 
 <p>问题2 稍微棘手一点，也绕了一个弯。首先参考了Mass 在tex.stackexchange上的关于设置xelatex的方法<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup> 作出如下修改：
 <figure class='code'><figcaption><span>.vimrc </span></figcaption>

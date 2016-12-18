@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 代理 | Sky's Octopress Blog]]></title>
   <link href="http://skychan.github.io/blog/categories/dai-li/atom.xml" rel="self"/>
   <link href="http://skychan.github.io/"/>
-  <updated>2016-06-20T22:57:11+08:00</updated>
+  <updated>2016-12-18T10:53:38+08:00</updated>
   <id>http://skychan.github.io/</id>
   <author>
     <name><![CDATA[Sky Chan]]></name>
@@ -153,7 +153,7 @@ Host ssh.github.com
     <link href="http://skychan.github.io/blog/2015/02/15/ke-xue-shang-wang/"/>
     <updated>2015-02-15T10:51:58+08:00</updated>
     <id>http://skychan.github.io/blog/2015/02/15/ke-xue-shang-wang</id>
-    <content type="html"><![CDATA[<p><blockquote><p>科学上网是必须技能。</p><footer><strong>Sky Chan</strong></footer></blockquote></p>
+    <content type="html"><![CDATA[<blockquote><p>科学上网是必须技能。</p></blockquote>
 
 <h2>Goagent 的局域网/公网配置</h2>
 
