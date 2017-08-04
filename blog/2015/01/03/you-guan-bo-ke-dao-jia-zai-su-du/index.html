@@ -9,7 +9,9 @@
   <meta name="author" content="Sky Chan">
 
   
-  <meta name="description" content="起因 有童鞋反应说加载速度很慢，这是一个关于举着保护旗号却在做愚蠢的事的悲伤的故事。 GFW GFW 是一切的原因，因为octopress需要加载google的字体库，本来是件多好到事情，怎耐GFW插足，你说有GFW在能不慢吗？网上找到了解决方法，发现360竟然把这字体库搬到墙里来了， &hellip;">
+  <meta name="description" content="起因
+有童鞋反应说加载速度很慢，这是一个关于举着保护旗号却在做愚蠢的事的悲伤的故事。 ## GFW
+GFW 是一切的原因，因为octopress需要加载google的字体库，本来是件多好到事情，怎耐GFW插足，你说有GFW在能不慢吗？网上找到了解决方法，发现360竟然把这字体库搬到墙里来了， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -59,7 +61,7 @@
 </script>
 
 <script type="text/javascript"
-   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+   src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
   
@@ -119,43 +121,21 @@
   </header>
 
 
-<div class="entry-content"><h2>起因</h2>
-
-<p>有童鞋反应说加载速度很慢，这是一个关于举着保护旗号却在做愚蠢的事的悲伤的故事。</p>
-
+<div class="entry-content"><h2 id="section">起因</h2>
+<p>有童鞋反应说加载速度很慢，这是一个关于举着保护旗号却在做愚蠢的事的悲伤的故事。
 <!--more-->
+## GFW
+GFW 是一切的原因，因为octopress需要加载google的字体库，本来是件多好到事情，怎耐GFW插足，你说有GFW在能不慢吗？网上找到了解决方法，发现360竟然把这字体库搬到墙里来了，这是360唯一一次让我还觉得做了件靠谱的事了。</p>
 
+<p>那么怎么解决问题呢？除了修改_config.yml，将墙外到花花世界注释掉之外，主要从两head.html进行配置调整。
+## 开始调整
+### 1. /source/_include/custom/head.html
+网上大多的方法是去掉这个文件里的google字体设置，但这个配置就两行google的字体库，删除之后还有存在到意义吗？这时候看到说，360把这个字体库搬进来了，真实干了件靠谱到事了。如是修改：</p>
 
-<h2>GFW</h2>
+<pre><code>//fonts.googleapis.com/ 修改为
 
-<p>GFW 是一切的原因，因为octopress需要加载google的字体库，本来是件多好到事情，怎耐GFW插足，你说有GFW在能不慢吗？网上找到了解决方法，发现360竟然把这字体库搬到墙里来了，这是360唯一一次让我还觉得做了件靠谱的事了。</p>
-
-<p>那么怎么解决问题呢？除了修改_config.yml，将墙外到花花世界注释掉之外，主要从两head.html进行配置调整。</p>
-
-<h2>开始调整</h2>
-
-<h3>1. /source/_include/custom/head.html</h3>
-
-<p>网上大多的方法是去掉这个文件里的google字体设置，但这个配置就两行google的字体库，删除之后还有存在到意义吗？这时候看到说，360把这个字体库搬进来了，真实干了件靠谱到事了。如是修改：</p>
-
-<pre><code>//fonts.googleapis.com/
+//fonts.useso.com/ 即可。 好激动，立马rake preview，咋回事，没效果，底部怎么在加载 'ajax.googleapis.com'，又是哪个api在加载？经过一番排查，终于找到。 ### 2. /source/_include/head.html 这个配置里面搜索一下，找到'googleapis'关键字，然后忍痛把这行脚本注释了。重新preview, 终于是加载快了，但是，总觉得这样不好。 ## 我的想法 google 的许多api是多么好到福利，减轻了多少开发者的工作量，然而这么好到工具只因社会意识形态和政治原因而粗暴地屏蔽，历史上也有闭关锁国的愚蠢行为，希望以史为鉴乃。
 </code></pre>
-
-<p>修改为</p>
-
-<pre><code>//fonts.useso.com/
-</code></pre>
-
-<p>即可。
-好激动，立马rake preview，咋回事，没效果，底部怎么在加载 &lsquo;ajax.googleapis.com'，又是哪个api在加载？经过一番排查，终于找到。</p>
-
-<h3>2. /source/_include/head.html</h3>
-
-<p>这个配置里面搜索一下，找到'googleapis'关键字，然后忍痛把这行脚本注释了。重新preview, 终于是加载快了，但是，总觉得这样不好。</p>
-
-<h2>我的想法</h2>
-
-<p>google 的许多api是多么好到福利，减轻了多少开发者的工作量，然而这么好到工具只因社会意识形态和政治原因而粗暴地屏蔽，历史上也有闭关锁国的愚蠢行为，希望以史为鉴乃。</p>
 </div>
 
 
@@ -217,6 +197,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2017/08/04/extended-euclidean-algorithm/">扩展欧几里得算法（Extended Euclidean Algorithm）</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2017/06/22/he-ni-yi-qi-de-yi-tian/">和你一起的一天</a>
       </li>
     
@@ -230,10 +214,6 @@
     
       <li class="post">
         <a href="/blog/2016/02/20/he-dou-ban-de-duan-she-chi/">和豆瓣的断舍离</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/02/05/latexmk-implement-vim-latex/">Vim-latex 整合latexmk</a>
       </li>
     
   </ul>

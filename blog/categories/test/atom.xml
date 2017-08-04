@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Test | Sky's Octopress Blog]]></title>
   <link href="http://skychan.github.io/blog/categories/test/atom.xml" rel="self"/>
   <link href="http://skychan.github.io/"/>
-  <updated>2017-06-23T10:50:39+08:00</updated>
+  <updated>2017-08-04T12:10:04+08:00</updated>
   <id>http://skychan.github.io/</id>
   <author>
     <name><![CDATA[Sky Chan]]></name>
@@ -19,7 +19,6 @@
     <updated>2014-12-31T21:51:56+08:00</updated>
     <id>http://skychan.github.io/blog/2014/12/31/ce-shi-zhong-wen</id>
     <content type="html"><![CDATA[<!--more-->
-
 ]]></content>
   </entry>
   
@@ -28,10 +27,8 @@
     <link href="http://skychan.github.io/blog/2014/12/31/happy-new-year/"/>
     <updated>2014-12-31T21:11:13+08:00</updated>
     <id>http://skychan.github.io/blog/2014/12/31/happy-new-year</id>
-    <content type="html"><![CDATA[<p>This is sky&rsquo;s first blog with octopress, have fun ^-^</p>
-
-<!--more-->
-
+    <content type="html"><![CDATA[<p>This is sky’s first blog with octopress, have fun ^-^
+<!--more--></p>
 ]]></content>
   </entry>
   

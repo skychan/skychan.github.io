@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://skychan.github.io/blog/2017/08/04/extended-euclidean-algorithm/</loc>
+<lastmod>2017-08-04T09:07:10+08:00</lastmod>
+</url>
+<url>
 <loc>http://skychan.github.io/blog/2017/06/22/he-ni-yi-qi-de-yi-tian/</loc>
 <lastmod>2017-06-22T13:35:39+08:00</lastmod>
 </url>
@@ -169,6 +173,9 @@
 </url>
 <url>
 <loc>http://skychan.github.io/blog/categories/ri-ben/</loc>
+</url>
+<url>
+<loc>http://skychan.github.io/blog/categories/algorithm/</loc>
 </url>
 <url>
 <loc>http://skychan.github.io/posts/2/</loc>

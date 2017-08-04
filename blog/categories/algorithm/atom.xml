@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Algorithm | Sky's Octopress Blog]]></title>
+  <link href="http://skychan.github.io/blog/categories/algorithm/atom.xml" rel="self"/>
+  <link href="http://skychan.github.io/"/>
+  <updated>2017-08-04T12:10:04+08:00</updated>
+  <id>http://skychan.github.io/</id>
+  <author>
+    <name><![CDATA[Sky Chan]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[扩展欧几里得算法（Extended Euclidean Algorithm）]]></title>
+    <link href="http://skychan.github.io/blog/2017/08/04/extended-euclidean-algorithm/"/>
+    <updated>2017-08-04T09:07:10+08:00</updated>
+    <id>http://skychan.github.io/blog/2017/08/04/extended-euclidean-algorithm</id>
+    <content type="html"><![CDATA[<p>欧几里得算法几乎算是我们最早接触到的算法，小学生就开始使用了。其实我更偏向于称之为辗转相除法，因为数学在中国的起源真的很早，然而文化背景的原因，这些宝贵的知识一直当作奇技淫巧。今天这里并不是要重复辗转相除法，而是讲它的一个有趣的变型：扩展辗转相除法。</p>
+
+<!--more-->
+
+<h2 id="eculdiean-algorithm">重温辗转相除法（Eculdiean algorithm）的过程</h2>
+
+<p><strong>例</strong>： 求 $888$ 和 $54$ 的最大公约数 $gcd(888,54)$ 。</p>
+
+<p><strong>解</strong>：</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{align}
+888 &= 16 \times 54 + 24 & \text{(1)}\\\
+54 &= 2 \times 24 + 6 & \text{(2)} \\\
+24 &= 4 \times 6 + 0 & \text{(3)}
+\end{align} %]]&gt;</script>
+
+<p>倒数第二步 $(2)$ 的余数就是最后的结果，即 $gcd(888,54) = 6$</p>
+
+<h2 id="extended-eculdiean-algorithm">扩展辗转相除法（Extended Eculdiean algorithm）</h2>
+<p>在求解上例的过程中，我们总可以找到这样一组整数 $(x,y)$ 使得下式<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>成立。
+<script type="math/tex">ax + by = gcd(a,b)</script></p>
+
+<p>具体作法：将 $gcd(a,b)$ 的求解过程反过来，每一步等式左边代入前一步，直到第一步。拿上例来说，过程如下：</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{align}
+6 & = 54 + (-2) \times 24 & &  (\text{变型}(2)) & \text{(4)} \\\
+6 & = 54 + (-2) \times (888 + (-16)\times 54) & & \text{(用(1)变型代入 24)} & \text{(5)} \\\
+6 &= (-2)\times 888 + 33 \times 54 & & \text{(合并同类项)} & \text{(6)}
+\end{align} %]]&gt;</script>
+
+<p>求得 $(x,y) = (-2, 33)$。到这里，大多数讲扩展辗转相除法的内容就停止了，其实这离真正可以应用和实现还差一步。</p>
+
+<p>我们来看看一般形式，假设我们用了 $n$ 步迭代，应用辗转相除法求解出最大公约数 $gcd(a,b)$，即：</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{align}
+a_{n-1} &=  d_{n-1}\times b_{n-1} + c_{n-1} & \text{(7)} \\\
+a_{n-2} &=  d_{n-1}\times b_{n-2} + c_{n-2} & \text{(8)} \\\
+\cdots \\\
+a_{i} &=  d_{i}\times b_{i} + c_{i} & \text{(9)} \\\
+\cdots \\\
+a_{0} &=  d_{0}\times b_{0} + c_{0} & \text{(10)} 
+\end{align} %]]&gt;</script>
+
+<p>容易发现 $b_{i+1} = a_{i}, c_{i+1} = b_{i}$。
+假设最后一步是$b_{0} = 0$，那么 $gcd(a,b)=a_{0}$ 同时，我们可以假设在第 $i$ 步有：</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{align}
+& a_{i} x_{i} + b_{i} y_{i} = a_{0} & \text{(11)}
+\end{align} %]]&gt;</script>
+
+<p>可以通过将 $i+1$ 步的变型（$c_{i+1} = b_{i}$）代入 $b_{i}$ ：</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{align}
+& b_{i+1} x_{i} + (a_{i+1} + ( - d_{i+1})\times b_{i+1}) y_{i} = a_{0} & \text{(12)} \\\
+& a_{i+1} y_{i} +  b_{i+1}(x_{i} - d_{i+1} y_{i} ) = a_{0} & \text{(13)}
+\end{align} %]]&gt;</script>
+
+<p>事实上，$(13)$ 符合 $(11)$ 的形式（$i&gt;0$），可以比较系数得出：</p>
+
+<script type="math/tex; mode=display">\begin{cases}
+x_{i+1} = y_{i} \\\
+y_{i+1} = x_{i} - d_{i+1} y_{i}
+\end{cases}</script>
+
+<p>对于 $i=0$ 的边界情况，我们可以直接用 $\text{(11)}$ 得出：</p>
+
+<script type="math/tex; mode=display">\begin{cases}
+x_{0} = 1 \\\
+y_{0} = 0
+\end{cases}</script>
+
+<p>需要注意的是 $d_{i} = [a_{i}/b_{i}]$ ，$c_{i} = a_{i} \mod b_{i}$</p>
+
+<h2 id="python">应用及代码实现（Python）</h2>
+<p>扩展辗转相除法是求解模反元素（Modular multiplicative inverse）的方法之一，求解模反元素是 RSA 加密算法<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>的主要步骤之一：</p>
+
+<script type="math/tex; mode=display">a \equiv 1 \pmod{b}</script>
+
+<p>或者表达为：</p>
+
+<script type="math/tex; mode=display">a x + by = 1</script>
+
+<p>实现扩展辗转相除法的Python 代码如下：</p>
+
+<script src="https://gist.github.com/skychan/8c21d22f7698af718f93d780a933a612.js"></script>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p><a href="https://en.wikipedia.org/wiki/B%C3%A9zout%27s_identity">裴蜀等式</a> <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p><a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">RSA 加密算法</a> <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+]]></content>
+  </entry>
+  
+</feed>

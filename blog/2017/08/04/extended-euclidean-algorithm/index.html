@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>扩展欧几里得算法（Extended Euclidean Algorithm） - Sky's Octopress Blog</title>
+  <meta name="author" content="Sky Chan">
+
+  
+  <meta name="description" content="欧几里得算法几乎算是我们最早接触到的算法，小学生就开始使用了。其实我更偏向于称之为辗转相除法，因为数学在中国的起源真的很早，然而文化背景的原因，这些宝贵的知识一直当作奇技淫巧。今天这里并不是要重复辗转相除法，而是讲它的一个有趣的变型：扩展辗转相除法。 重温辗转相除法（Eculdiean &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://skychan.github.io/blog/2017/08/04/extended-euclidean-algorithm">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Sky's Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.lug.ustc.edu.cn/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.lug.ustc.edu.cn/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.lug.ustc.edu.cn/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript"
+   src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Sky's Octopress Blog</a></h1>
+  
+    <h2>为者常成，行者常至</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="skychan.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">扩展欧几里得算法（Extended Euclidean Algorithm）</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2017-08-04T09:07:10+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>4</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>9:07 am</span></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://skychan.github.io">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>欧几里得算法几乎算是我们最早接触到的算法，小学生就开始使用了。其实我更偏向于称之为辗转相除法，因为数学在中国的起源真的很早，然而文化背景的原因，这些宝贵的知识一直当作奇技淫巧。今天这里并不是要重复辗转相除法，而是讲它的一个有趣的变型：扩展辗转相除法。</p>
+
+<!--more-->
+
+<h2 id="eculdiean-algorithm">重温辗转相除法（Eculdiean algorithm）的过程</h2>
+
+<p><strong>例</strong>： 求 $888$ 和 $54$ 的最大公约数 $gcd(888,54)$ 。</p>
+
+<p><strong>解</strong>：</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+888 &= 16 \times 54 + 24 & \text{(1)}\\\
+54 &= 2 \times 24 + 6 & \text{(2)} \\\
+24 &= 4 \times 6 + 0 & \text{(3)}
+\end{align} %]]></script>
+
+<p>倒数第二步 $(2)$ 的余数就是最后的结果，即 $gcd(888,54) = 6$</p>
+
+<h2 id="extended-eculdiean-algorithm">扩展辗转相除法（Extended Eculdiean algorithm）</h2>
+<p>在求解上例的过程中，我们总可以找到这样一组整数 $(x,y)$ 使得下式<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>成立。
+<script type="math/tex">ax + by = gcd(a,b)</script></p>
+
+<p>具体作法：将 $gcd(a,b)$ 的求解过程反过来，每一步等式左边代入前一步，直到第一步。拿上例来说，过程如下：</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+6 & = 54 + (-2) \times 24 & &  (\text{变型}(2)) & \text{(4)} \\\
+6 & = 54 + (-2) \times (888 + (-16)\times 54) & & \text{(用(1)变型代入 24)} & \text{(5)} \\\
+6 &= (-2)\times 888 + 33 \times 54 & & \text{(合并同类项)} & \text{(6)}
+\end{align} %]]></script>
+
+<p>求得 $(x,y) = (-2, 33)$。到这里，大多数讲扩展辗转相除法的内容就停止了，其实这离真正可以应用和实现还差一步。</p>
+
+<p>我们来看看一般形式，假设我们用了 $n$ 步迭代，应用辗转相除法求解出最大公约数 $gcd(a,b)$，即：</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+a_{n-1} &=  d_{n-1}\times b_{n-1} + c_{n-1} & \text{(7)} \\\
+a_{n-2} &=  d_{n-1}\times b_{n-2} + c_{n-2} & \text{(8)} \\\
+\cdots \\\
+a_{i} &=  d_{i}\times b_{i} + c_{i} & \text{(9)} \\\
+\cdots \\\
+a_{0} &=  d_{0}\times b_{0} + c_{0} & \text{(10)} 
+\end{align} %]]></script>
+
+<p>容易发现 $b_{i+1} = a_{i}, c_{i+1} = b_{i}$。
+假设最后一步是$b_{0} = 0$，那么 $gcd(a,b)=a_{0}$ 同时，我们可以假设在第 $i$ 步有：</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+& a_{i} x_{i} + b_{i} y_{i} = a_{0} & \text{(11)}
+\end{align} %]]></script>
+
+<p>可以通过将 $i+1$ 步的变型（$c_{i+1} = b_{i}$）代入 $b_{i}$ ：</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+& b_{i+1} x_{i} + (a_{i+1} + ( - d_{i+1})\times b_{i+1}) y_{i} = a_{0} & \text{(12)} \\\
+& a_{i+1} y_{i} +  b_{i+1}(x_{i} - d_{i+1} y_{i} ) = a_{0} & \text{(13)}
+\end{align} %]]></script>
+
+<p>事实上，$(13)$ 符合 $(11)$ 的形式（$i&gt;0$），可以比较系数得出：</p>
+
+<script type="math/tex; mode=display">\begin{cases}
+x_{i+1} = y_{i} \\\
+y_{i+1} = x_{i} - d_{i+1} y_{i}
+\end{cases}</script>
+
+<p>对于 $i=0$ 的边界情况，我们可以直接用 $\text{(11)}$ 得出：</p>
+
+<script type="math/tex; mode=display">\begin{cases}
+x_{0} = 1 \\\
+y_{0} = 0
+\end{cases}</script>
+
+<p>需要注意的是 $d_{i} = [a_{i}/b_{i}]$ ，$c_{i} = a_{i} \mod b_{i}$</p>
+
+<h2 id="python">应用及代码实现（Python）</h2>
+<p>扩展辗转相除法是求解模反元素（Modular multiplicative inverse）的方法之一，求解模反元素是 RSA 加密算法<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>的主要步骤之一：</p>
+
+<script type="math/tex; mode=display">a \equiv 1 \pmod{b}</script>
+
+<p>或者表达为：</p>
+
+<script type="math/tex; mode=display">a x + by = 1</script>
+
+<p>实现扩展辗转相除法的Python 代码如下：</p>
+
+<script src="https://gist.github.com/skychan/8c21d22f7698af718f93d780a933a612.js"></script>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p><a href="https://en.wikipedia.org/wiki/B%C3%A9zout%27s_identity">裴蜀等式</a> <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p><a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">RSA 加密算法</a> <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Sky Chan</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2017-08-04T09:07:10+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>4</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>9:07 am</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/algorithm/'>algorithm</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2017/06/22/he-ni-yi-qi-de-yi-tian/" title="Previous Post: 和你一起的一天">&laquo; 和你一起的一天</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/08/04/extended-euclidean-algorithm/">扩展欧几里得算法（Extended Euclidean Algorithm）</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/06/22/he-ni-yi-qi-de-yi-tian/">和你一起的一天</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/03/12/lian-cang-he-dong-jing.markdown/">镰仓和东京</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/06/20/texlive-kua-ban-ben-geng-xin/">TexLive 跨版本更新</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/20/he-dou-ban-de-duan-she-chi/">和豆瓣的断舍离</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - Sky Chan -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'skyoctopress';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://skychan.github.io/blog/2017/08/04/extended-euclidean-algorithm/';
+        var disqus_url = 'http://skychan.github.io/blog/2017/08/04/extended-euclidean-algorithm/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
