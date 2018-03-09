@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>有关博客的加载速度 - Sky's Octopress Blog</title>
+  <title>LaTeX 结合 Git 的修订模式 - Sky's Octopress Blog</title>
   <meta name="author" content="Sky Chan">
 
   
-  <meta name="description" content="起因
-有童鞋反应说加载速度很慢，这是一个关于举着保护旗号却在做愚蠢的事的悲伤的故事。 ## GFW
-GFW 是一切的原因，因为octopress需要加载google的字体库，本来是件多好到事情，怎耐GFW插足，你说有GFW在能不慢吗？网上找到了解决方法，发现360竟然把这字体库搬到墙里来了， &hellip;">
+  <meta name="description" content="LaTeX 写作的时候，尤其是经过一番修改之后，会遇到这样的问题：怎样标出哪些部分修改了哪些地方，也就是类似MS Word 的修订功能？ 单纯的修订标记工具——latexdiff TeXLive 自带的工具其实可以做到这一点，但是单纯的使用它，需要注意一些地方。比如说，你有一个修改好的文件 new &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +18,7 @@ GFW 是一切的原因，因为octopress需要加载google的字体库，本来�
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://skychan.github.io/blog/2015/01/03/you-guan-bo-ke-dao-jia-zai-su-du">
+  <link rel="canonical" href="http://skychan.github.io/blog/2018/03/09/latex-jie-he-git-de-xiu-ding-mo-shi">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Sky's Octopress Blog" type="application/atom+xml">
@@ -102,7 +100,7 @@ GFW 是一切的原因，因为octopress需要加载google的字体库，本来�
   
   <header>
     
-      <h1 class="entry-title">有关博客的加载速度</h1>
+      <h1 class="entry-title">LaTeX 结合 Git 的修订模式</h1>
     
     
       <p class="meta">
@@ -111,7 +109,7 @@ GFW 是一切的原因，因为octopress需要加载google的字体库，本来�
 
 
 
-<time class='entry-date' datetime='2015-01-03T21:34:00+08:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>3</span><span class='date-suffix'>rd</span>, <span class='date-year'>2015</span></span> <span class='time'>9:34 pm</span></time>
+<time class='entry-date' datetime='2018-03-09T15:54:48+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>9</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>3:54 pm</span></time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://skychan.github.io">Comments</a>
@@ -121,21 +119,67 @@ GFW 是一切的原因，因为octopress需要加载google的字体库，本来�
   </header>
 
 
-<div class="entry-content"><h2 id="section">起因</h2>
-<p>有童鞋反应说加载速度很慢，这是一个关于举着保护旗号却在做愚蠢的事的悲伤的故事。
+<div class="entry-content"><p>LaTeX 写作的时候，尤其是经过一番修改之后，会遇到这样的问题：怎样标出哪些部分修改了哪些地方，也就是类似MS Word 的修订功能？</p>
+
 <!--more-->
-## GFW
-GFW 是一切的原因，因为octopress需要加载google的字体库，本来是件多好到事情，怎耐GFW插足，你说有GFW在能不慢吗？网上找到了解决方法，发现360竟然把这字体库搬到墙里来了，这是360唯一一次让我还觉得做了件靠谱的事了。</p>
 
-<p>那么怎么解决问题呢？除了修改_config.yml，将墙外到花花世界注释掉之外，主要从两head.html进行配置调整。
-## 开始调整
-### 1. /source/_include/custom/head.html
-网上大多的方法是去掉这个文件里的google字体设置，但这个配置就两行google的字体库，删除之后还有存在到意义吗？这时候看到说，360把这个字体库搬进来了，真实干了件靠谱到事了。如是修改：</p>
+<h2 id="latexdiff">单纯的修订标记工具——<code>latexdiff</code></h2>
 
-<pre><code>//fonts.googleapis.com/ 修改为
+<p>TeXLive 自带的工具其实可以做到这一点，但是单纯的使用它，需要注意一些地方。比如说，你有一个修改好的文件 <code>new.tex</code>，那么在进行修改之前，记得要备份未修改文件，比如说修改前的内容保存在 <code>old.tex</code>。那么，接下来，可以使用<code>latexdiff</code>工具生成附带修订的文件：</p>
 
-//fonts.useso.com/ 即可。 好激动，立马rake preview，咋回事，没效果，底部怎么在加载 'ajax.googleapis.com'，又是哪个api在加载？经过一番排查，终于找到。 ### 2. /source/_include/head.html 这个配置里面搜索一下，找到'googleapis'关键字，然后忍痛把这行脚本注释了。重新preview, 终于是加载快了，但是，总觉得这样不好。 ## 我的想法 google 的许多api是多么好到福利，减轻了多少开发者的工作量，然而这么好到工具只因社会意识形态和政治原因而粗暴地屏蔽，历史上也有闭关锁国的愚蠢行为，希望以史为鉴乃。
+<pre><code>latexdiff old.tex new.tex &gt; revised.tex
 </code></pre>
+
+<p>这样，就得到了一个附带修改标记的<code>revised.tex</code>文件。需要注意的是，直接进行编译<code>revised.tex</code>可能会出错，需要根据提示查找问题并进行改动。</p>
+
+<p>此外，对于比较长的文档，大多会采用<code>\input{}</code>等导入其他章节内容的命令，那么需要使用<code>--expand</code> 选项。</p>
+
+<p><strong>注意事项</strong>：</p>
+
+<ol>
+  <li>修改文件前，要保存。</li>
+  <li>排查修订标记文件的错误。</li>
+  <li><code>--expand</code> 选项应对<code>\input{}</code>、<code>\include{}</code>等命令。</li>
+</ol>
+
+<h2 id="latexdiff-vc">结合版本控制的修订标记工具——<code>latexdiff-vc</code></h2>
+<p>一般情况下，修改的次数很多，每一个版本都保存的话，虽然不占什么空间，但是很啰嗦。现存很多版本控制软件能很好地控制版本，所以也就出现了升级工具：<code>latexdiff-vc</code>。</p>
+
+<p>这个命令默认用<code>git</code>作为版本控制工具，对于<code>svn</code>等其他主流版本控制工具也适用。这里以<code>git</code>为例子，对文件<code>main.tex</code>的修订版本控制的大致工作流程是这样：</p>
+
+<h3 id="section">1. 设置标签。</h3>
+<p>在每次完成文档编辑和修改，添加到版本控制系统并提交后，对这次提交（也就是这次修改好的文档版本）进行标签设置：</p>
+
+<pre><code>git tag '[type any information you like]'
+</code></pre>
+
+<p>其中，中括号中的内容自己定，这是对这次版本进行标记。</p>
+
+<h3 id="section-1">2. 切换版本</h3>
+<p>假设你在写作的过程中，有许多标签已经设定好了，你要比较<code>ver_new</code>和<code>ver_old</code>两个标签对应的版本的修订区别，首先切换到要修改后的标签<code>ver_new</code>:</p>
+
+<pre><code>git checkout ver_new
+</code></pre>
+
+<p>当前工作版本如果已经是<code>ver_new</code>就可以跳过这步操作。</p>
+
+<h3 id="section-2">3. 输出修订标记</h3>
+<p>最后，输出修订标记文档即可：</p>
+
+<pre><code>latexdiff-vc -r ver_old --flatten main.tex
+</code></pre>
+
+<p>这样一来，如果没有出错，会输出名为<code>main-diffver_old.tex</code>的文档。其中<code>--flatten</code>选项和前面<code>--expand</code>是同一个作用，不再多说。</p>
+
+<p>此外，可以直接加上<code>--pdf</code>选项直接编译生成带修订的文档。但个人经验来看，不适合这么做，因为生成的修订标记文档常常不能编译通过，需要看报错来修改，尤其是在浮动体、图片、表格比较多的时候。</p>
+
+<p><strong>注意事项</strong>：</p>
+
+<ol>
+  <li><code>git commit</code>之后要<code>git tag</code>。</li>
+  <li>切换到修改后的版本。</li>
+  <li>排查修订标记文档中的编译错误。</li>
+</ol>
 </div>
 
 
@@ -151,12 +195,12 @@ GFW 是一切的原因，因为octopress需要加载google的字体库，本来�
 
 
 
-<time class='entry-date' datetime='2015-01-03T21:34:00+08:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>3</span><span class='date-suffix'>rd</span>, <span class='date-year'>2015</span></span> <span class='time'>9:34 pm</span></time>
+<time class='entry-date' datetime='2018-03-09T15:54:48+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>9</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>3:54 pm</span></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/blog/'>blog</a>, <a class='category' href='/blog/categories/pei-zhi/'>配置</a>
+    <a class='category' href='/blog/categories/latex/'>latex</a>, <a class='category' href='/blog/categories/ban-ben-kong-zhi/'>版本控制</a>
   
 </span>
 
@@ -173,10 +217,8 @@ GFW 是一切的原因，因为octopress需要加载google的字体库，本来�
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/12/31/tian-jia-duo-shuo-ping-lun-mo-kuai/" title="Previous Post: 添加多说评论模块">&laquo; 添加多说评论模块</a>
+        <a class="basic-alignment left" href="/blog/2017/08/04/extended-euclidean-algorithm/" title="Previous Post: 扩展欧几里得算法（Extended Euclidean algorithm）">&laquo; 扩展欧几里得算法（Extended Euclidean algorithm）</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/01/05/lost-stars-ji-ta-pu/" title="Next Post: Lost Stars 吉他谱">Lost Stars 吉他谱 &raquo;</a>
       
     </p>
   </footer>
@@ -242,8 +284,8 @@ GFW 是一切的原因，因为octopress需要加载google的字体库，本来�
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://skychan.github.io/blog/2015/01/03/you-guan-bo-ke-dao-jia-zai-su-du/';
-        var disqus_url = 'http://skychan.github.io/blog/2015/01/03/you-guan-bo-ke-dao-jia-zai-su-du/';
+        var disqus_identifier = 'http://skychan.github.io/blog/2018/03/09/latex-jie-he-git-de-xiu-ding-mo-shi/';
+        var disqus_url = 'http://skychan.github.io/blog/2018/03/09/latex-jie-he-git-de-xiu-ding-mo-shi/';
         var disqus_script = 'embed.js';
       
     (function () {

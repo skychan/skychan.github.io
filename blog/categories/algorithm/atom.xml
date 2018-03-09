@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Algorithm | Sky's Octopress Blog]]></title>
   <link href="http://skychan.github.io/blog/categories/algorithm/atom.xml" rel="self"/>
   <link href="http://skychan.github.io/"/>
-  <updated>2017-08-04T12:10:04+08:00</updated>
+  <updated>2018-03-09T16:05:03+08:00</updated>
   <id>http://skychan.github.io/</id>
   <author>
     <name><![CDATA[Sky Chan]]></name>
@@ -38,8 +38,9 @@
 <p>倒数第二步 $(2)$ 的余数就是最后的结果，即 $gcd(888,54) = 6$</p>
 
 <h2 id="extended-eculdiean-algorithm">扩展辗转相除法（Extended Eculdiean algorithm）</h2>
-<p>在求解上例的过程中，我们总可以找到这样一组整数 $(x,y)$ 使得下式<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>成立。
-<script type="math/tex">ax + by = gcd(a,b)</script></p>
+<p>在求解上例的过程中，我们总可以找到这样一组整数 $(x,y)$ 使得下式<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>成立。</p>
+
+<script type="math/tex; mode=display">ax + by = gcd(a,b)</script>
 
 <p>具体作法：将 $gcd(a,b)$ 的求解过程反过来，每一步等式左边代入前一步，直到第一步。拿上例来说，过程如下：</p>
 
