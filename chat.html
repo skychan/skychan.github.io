@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #chat-container { max-width: 600px; margin: auto; }
+        #messages { border: 1px solid #ccc; padding: 10px; height: 300px; overflow-y: auto; }
+        #user-input { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <h1>AI Chatbot</h1>
+        <div id="messages"></div>
+        <div id="user-input">
+            <input type="text" id="message" placeholder="Type your message here" />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = "https://updc32enb9.execute-api.ap-southeast-1.amazonaws.com/default/chatbot";
+
+        function addMessage(sender, text) {
+            const messagesDiv = document.getElementById('messages');
+            const message = document.createElement('div');
+            message.innerHTML = `<strong>${sender}:</strong> ${text}`;
+            messagesDiv.appendChild(message);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        async function sendMessage() {
+            const userInput = document.getElementById('message');
+            const userMessage = userInput.value;
+            if (!userMessage) return;
+
+            addMessage("You", userMessage);
+            userInput.value = '';
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+                    body: JSON.stringify({ message: userMessage })
+                });
+                const data = await response.json();
+                addMessage("Bot", data.reply || "Error generating response.");
+            } catch (error) {
+                addMessage("Bot", "Error connecting to server.");
+            }
+        }
+    </script>
+</body>
+</html>
+
+
